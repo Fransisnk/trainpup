@@ -49,16 +49,12 @@
                 // Calculate next increment based on current duration
                 let increment;
                 if (currentDuration < 60) {
-                    // Under 1 min: increase by ~75%, rounded to nearest second
-                    increment = Math.round(currentDuration * 0.75);
+                    increment = Math.round(currentDuration * 0.7);
                 } else if (currentDuration < 300) {
-                    // 1 min to 5 min: increase by ~50%, rounded to nearest 30 seconds
                     increment = Math.round(currentDuration * 0.50 / 30) * 30;
                 } else if (currentDuration < 1200) {
-                    // 5 min to 20 min: increase by ~25%, rounded to nearest minute
                     increment = Math.round(currentDuration * 0.25 / 60) * 60;
                 } else {
-                    // 20 min or more: increase by ~10%, rounded to nearest minute
                     increment = Math.round(currentDuration * 0.10 / 60) * 60;
                 }
 
@@ -71,6 +67,17 @@
             steps.push(endDuration);
 
             return steps;
+        };
+
+        // Generate random duration from normal distribution
+        const normalRandom = (mean, sigma) => {
+            // Box-Muller transform to generate normal distribution
+            const u1 = Math.random();
+            const u2 = Math.random();
+            const z0 = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+            const sample = mean + sigma * z0;
+            // Ensure positive duration and round to 1 decimal place
+            return Math.max(0.1, Math.round(sample * 10) / 10);
         };
 
         // Main App Component
@@ -323,9 +330,15 @@
                                 {workout.attempts.slice().reverse().map((attempt, index) => (
                                     <div key={index} className="border-b border-gray-200 pb-2">
                                         <div className="flex justify-between items-center">
-                                            <span className="text-sm text-gray-600">
-                                                {new Date(attempt.completedAt).toLocaleDateString()} - Level {attempt.level + 1} ({attempt.duration}s)
-                                            </span>
+                                            <div className="flex-1">
+                                                <div className="text-sm text-gray-600">
+                                                    {new Date(attempt.completedAt).toLocaleDateString()} {new Date(attempt.completedAt).toLocaleTimeString()}
+                                                </div>
+                                                <div className="text-xs text-gray-500">
+                                                    Level {attempt.level + 1} - Target: {attempt.duration}s
+                                                    {attempt.actualDuration && ` | Actual: ${attempt.actualDuration}s`}
+                                                </div>
+                                            </div>
                                             <span className={`text-sm font-semibold ${
                                                 attempt.result === 'success' ? 'text-green-600' :
                                                 attempt.result === 'failure' ? 'text-yellow-600' : 'text-red-600'
@@ -403,11 +416,18 @@
             const recordResult = (result) => {
                 const currentDuration = workout.durationSteps[workout.currentLevel] || workout.durationSteps[workout.durationSteps.length - 1];
 
+                // Generate actual duration from normal distribution (mean = duration, sigma = 10% of duration)
+                const sigma = currentDuration * 0.1;
+                const actualDuration = normalRandom(currentDuration, sigma);
+
                 const attempt = {
-                    duration: currentDuration,
+                    targetDuration: currentDuration,
+                    actualDuration: actualDuration,
+                    duration: currentDuration, // Keep for backward compatibility
                     level: workout.currentLevel,
                     result,
-                    completedAt: new Date().toISOString()
+                    completedAt: new Date().toISOString(),
+                    timestamp: Date.now()
                 };
 
                 const updatedWorkout = { ...workout };
@@ -552,19 +572,24 @@
                             <div className="bg-gray-50 p-4 rounded-lg mb-6">
                                 <h3 className="font-semibold text-gray-800 mb-3">Recent Attempts</h3>
                                 <div className="flex flex-wrap gap-2">
-                                    {workout.attempts.slice(-10).reverse().map((attempt, index) => (
-                                        <span
-                                            key={index}
-                                            className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                                                attempt.result === 'success' ? 'bg-green-200 text-green-800' :
-                                                attempt.result === 'failure' ? 'bg-yellow-200 text-yellow-800' :
-                                                'bg-red-200 text-red-800'
-                                            }`}
-                                            title={`Level ${attempt.level + 1} - ${attempt.duration}s`}
-                                        >
-                                            {attempt.result === 'success' ? '✓' : attempt.result === 'failure' ? '~' : '✗'}
-                                        </span>
-                                    ))}
+                                    {workout.attempts.slice(-10).reverse().map((attempt, index) => {
+                                        const attemptDate = new Date(attempt.completedAt);
+                                        const tooltipText = `${attemptDate.toLocaleDateString()} ${attemptDate.toLocaleTimeString()}\nLevel ${attempt.level + 1}\nTarget: ${attempt.duration}s${attempt.actualDuration ? `\nActual: ${attempt.actualDuration}s` : ''}`;
+
+                                        return (
+                                            <span
+                                                key={index}
+                                                className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                                                    attempt.result === 'success' ? 'bg-green-200 text-green-800' :
+                                                    attempt.result === 'failure' ? 'bg-yellow-200 text-yellow-800' :
+                                                    'bg-red-200 text-red-800'
+                                                }`}
+                                                title={tooltipText}
+                                            >
+                                                {attempt.result === 'success' ? '✓' : attempt.result === 'failure' ? '~' : '✗'}
+                                            </span>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         )}
