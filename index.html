@@ -38,13 +38,38 @@
             }
         };
 
-        // Calculate duration steps
-        const calculateDurationSteps = (numSessions, startDuration, endDuration) => {
+        // Calculate duration steps with dog-friendly increments
+        const calculateDurationSteps = (startDuration, endDuration) => {
             const steps = [];
-            const increment = (endDuration - startDuration) / (numSessions - 1);
-            for (let i = 0; i < numSessions; i++) {
-                steps.push(Math.round(startDuration + (increment * i)));
+            let currentDuration = startDuration;
+
+            while (currentDuration < endDuration) {
+                steps.push(currentDuration);
+
+                // Calculate next increment based on current duration
+                let increment;
+                if (currentDuration < 60) {
+                    // Under 1 min: increase by ~75%, rounded to nearest second
+                    increment = Math.round(currentDuration * 0.75);
+                } else if (currentDuration < 300) {
+                    // 1 min to 5 min: increase by ~50%, rounded to nearest 30 seconds
+                    increment = Math.round(currentDuration * 0.50 / 30) * 30;
+                } else if (currentDuration < 1200) {
+                    // 5 min to 20 min: increase by ~25%, rounded to nearest minute
+                    increment = Math.round(currentDuration * 0.25 / 60) * 60;
+                } else {
+                    // 20 min or more: increase by ~10%, rounded to nearest minute
+                    increment = Math.round(currentDuration * 0.10 / 60) * 60;
+                }
+
+                // Ensure at least 1 second increment
+                increment = Math.max(increment, 1);
+                currentDuration += increment;
             }
+
+            // Add the final target duration
+            steps.push(endDuration);
+
             return steps;
         };
 
@@ -133,9 +158,12 @@
         // New Workout Page Component
         function NewWorkoutPage({ navigate }) {
             const [name, setName] = useState('');
-            const [numSessions, setNumSessions] = useState(10);
             const [startDuration, setStartDuration] = useState(5);
             const [endDuration, setEndDuration] = useState(60);
+
+            // Calculate number of sessions based on the progressive increment algorithm
+            const durationSteps = calculateDurationSteps(startDuration, endDuration);
+            const numSessions = durationSteps.length;
 
             const createWorkout = () => {
                 if (!name.trim()) {
@@ -147,8 +175,6 @@
                     alert('Start duration must be less than end duration');
                     return;
                 }
-
-                const durationSteps = calculateDurationSteps(numSessions, startDuration, endDuration);
                 
                 const newWorkout = {
                     id: Date.now().toString(),
@@ -197,20 +223,6 @@
 
                             <div>
                                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Number of Sessions: {numSessions}
-                                </label>
-                                <input
-                                    type="range"
-                                    min="5"
-                                    max="30"
-                                    value={numSessions}
-                                    onChange={(e) => setNumSessions(parseInt(e.target.value))}
-                                    className="w-full"
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
                                     Start Duration (seconds): {startDuration}
                                 </label>
                                 <input
@@ -225,12 +237,12 @@
 
                             <div>
                                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    End Duration (seconds): {endDuration}
+                                    End Duration: {endDuration >= 60 ? `${Math.floor(endDuration / 60)}m ${endDuration % 60}s` : `${endDuration}s`}
                                 </label>
                                 <input
                                     type="range"
                                     min="10"
-                                    max="300"
+                                    max="7200"
                                     value={endDuration}
                                     onChange={(e) => setEndDuration(parseInt(e.target.value))}
                                     className="w-full"
@@ -238,10 +250,12 @@
                             </div>
 
                             <div className="bg-blue-50 p-4 rounded-lg">
-                                <p className="text-sm text-gray-700">
+                                <p className="text-sm text-gray-700 mb-2">
                                     Duration will increase from <span className="font-semibold">{startDuration}s</span> to{' '}
-                                    <span className="font-semibold">{endDuration}s</span> over{' '}
-                                    <span className="font-semibold">{numSessions}</span> sessions
+                                    <span className="font-semibold">{endDuration >= 60 ? `${Math.floor(endDuration / 60)}m ${endDuration % 60}s` : `${endDuration}s`}</span>
+                                </p>
+                                <p className="text-sm text-gray-700">
+                                    This will create <span className="font-semibold">{numSessions}</span> sessions with dog-friendly progressive increments
                                 </p>
                             </div>
 
