@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#2563eb">
-    <meta name="description" content="Dog Training Session Manager">
+    <meta name="description" content="Dog Training Progress Tracker">
     <title>Dog Training Tracker</title>
     <link rel="manifest" href="manifest.json">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -77,12 +77,10 @@
         function App() {
             const [currentPage, setCurrentPage] = useState('main');
             const [selectedWorkoutId, setSelectedWorkoutId] = useState(null);
-            const [sessionData, setSessionData] = useState(null);
 
-            const navigate = (page, workoutId = null, session = null) => {
+            const navigate = (page, workoutId = null) => {
                 setCurrentPage(page);
                 setSelectedWorkoutId(workoutId);
-                setSessionData(session);
             };
 
             return (
@@ -90,7 +88,7 @@
                     {currentPage === 'main' && <MainPage navigate={navigate} />}
                     {currentPage === 'new-workout' && <NewWorkoutPage navigate={navigate} />}
                     {currentPage === 'workout' && <WorkoutPage navigate={navigate} workoutId={selectedWorkoutId} />}
-                    {currentPage === 'session' && <SessionPage navigate={navigate} workoutId={selectedWorkoutId} sessionData={sessionData} />}
+                    {currentPage === 'training' && <TrainingPage navigate={navigate} workoutId={selectedWorkoutId} />}
                 </div>
             );
         }
@@ -111,7 +109,7 @@
                 <div className="max-w-2xl mx-auto p-4">
                     <div className="bg-white rounded-lg shadow-md p-6 mb-4">
                         <h1 className="text-3xl font-bold text-gray-800 mb-2">🐕 Dog Training Tracker</h1>
-                        <p className="text-gray-600">Manage your training sessions</p>
+                        <p className="text-gray-600">Track your training progress</p>
                     </div>
 
                     <button
@@ -129,13 +127,13 @@
                         ) : (
                             workouts.map(workout => (
                                 <div key={workout.id} className="bg-white rounded-lg shadow-md p-4 flex items-center justify-between">
-                                    <div 
+                                    <div
                                         className="flex-1 cursor-pointer"
-                                        onClick={() => navigate('workout', workout.id)}
+                                        onClick={() => navigate('training', workout.id)}
                                     >
                                         <h3 className="text-lg font-semibold text-gray-800">{workout.name}</h3>
                                         <p className="text-sm text-gray-600">
-                                            {workout.completedSessions.length} / {workout.totalSessions} sessions completed
+                                            Level {workout.currentLevel + 1} / {workout.totalLevels}
                                         </p>
                                     </div>
                                     <button
@@ -161,9 +159,9 @@
             const [startDuration, setStartDuration] = useState(5);
             const [endDuration, setEndDuration] = useState(60);
 
-            // Calculate number of sessions based on the progressive increment algorithm
+            // Calculate number of levels based on the progressive increment algorithm
             const durationSteps = calculateDurationSteps(startDuration, endDuration);
-            const numSessions = durationSteps.length;
+            const numLevels = durationSteps.length;
 
             const createWorkout = () => {
                 if (!name.trim()) {
@@ -179,10 +177,10 @@
                 const newWorkout = {
                     id: Date.now().toString(),
                     name: name.trim(),
-                    totalSessions: numSessions,
+                    totalLevels: numLevels,
                     durationSteps,
-                    completedSessions: [],
-                    currentSessionIndex: 0,
+                    attempts: [],
+                    currentLevel: 0,
                     requiredSuccesses: 3,
                     createdAt: new Date().toISOString()
                 };
@@ -255,7 +253,7 @@
                                     <span className="font-semibold">{endDuration >= 60 ? `${Math.floor(endDuration / 60)}m ${endDuration % 60}s` : `${endDuration}s`}</span>
                                 </p>
                                 <p className="text-sm text-gray-700">
-                                    This will create <span className="font-semibold">{numSessions}</span> sessions with dog-friendly progressive increments
+                                    This will create <span className="font-semibold">{numLevels}</span> levels with dog-friendly progressive increments
                                 </p>
                             </div>
 
@@ -291,64 +289,48 @@
                 );
             }
 
-            const currentDuration = workout.durationSteps[workout.currentSessionIndex] || workout.durationSteps[workout.durationSteps.length - 1];
-            const completedCount = workout.completedSessions.length;
-
-            const startNewSession = () => {
-                const sessionData = {
-                    targetDuration: currentDuration,
-                    requiredSuccesses: workout.requiredSuccesses,
-                    sessionIndex: workout.currentSessionIndex
-                };
-                navigate('session', workoutId, sessionData);
-            };
+            const currentDuration = workout.durationSteps[workout.currentLevel] || workout.durationSteps[workout.durationSteps.length - 1];
 
             return (
                 <div className="max-w-2xl mx-auto p-4">
                     <div className="bg-white rounded-lg shadow-md p-6 mb-4">
                         <div className="flex items-center mb-4">
                             <button
-                                onClick={() => navigate('main')}
+                                onClick={() => navigate('training', workoutId)}
                                 className="text-blue-600 font-semibold mr-4"
                             >
-                                ← Back
+                                ← Back to Training
                             </button>
                             <h1 className="text-2xl font-bold text-gray-800">{workout.name}</h1>
                         </div>
 
                         <div className="grid grid-cols-2 gap-4 mb-6">
                             <div className="bg-blue-50 p-4 rounded-lg">
-                                <p className="text-sm text-gray-600">Progress</p>
-                                <p className="text-2xl font-bold text-blue-600">{completedCount}/{workout.totalSessions}</p>
+                                <p className="text-sm text-gray-600">Current Level</p>
+                                <p className="text-2xl font-bold text-blue-600">{workout.currentLevel + 1}/{workout.totalLevels}</p>
                             </div>
                             <div className="bg-green-50 p-4 rounded-lg">
-                                <p className="text-sm text-gray-600">Current Duration</p>
+                                <p className="text-sm text-gray-600">Level Duration</p>
                                 <p className="text-2xl font-bold text-green-600">{currentDuration}s</p>
                             </div>
                         </div>
-
-                        <button
-                            onClick={startNewSession}
-                            className="w-full bg-green-600 text-white py-4 rounded-lg font-semibold shadow-md hover:bg-green-700 transition"
-                        >
-                            Start Session
-                        </button>
                     </div>
 
-                    {workout.completedSessions.length > 0 && (
+                    {workout.attempts && workout.attempts.length > 0 && (
                         <div className="bg-white rounded-lg shadow-md p-6 mb-4">
-                            <h2 className="text-xl font-bold text-gray-800 mb-4">Past Sessions</h2>
+                            <h2 className="text-xl font-bold text-gray-800 mb-4">Past Attempts</h2>
                             <div className="space-y-2">
-                                {workout.completedSessions.slice().reverse().map((session, index) => (
+                                {workout.attempts.slice().reverse().map((attempt, index) => (
                                     <div key={index} className="border-b border-gray-200 pb-2">
                                         <div className="flex justify-between items-center">
                                             <span className="text-sm text-gray-600">
-                                                {new Date(session.completedAt).toLocaleDateString()} - {session.duration}s
+                                                {new Date(attempt.completedAt).toLocaleDateString()} - Level {attempt.level + 1} ({attempt.duration}s)
                                             </span>
                                             <span className={`text-sm font-semibold ${
-                                                session.successCount >= session.requiredSuccesses ? 'text-green-600' : 'text-red-600'
+                                                attempt.result === 'success' ? 'text-green-600' :
+                                                attempt.result === 'failure' ? 'text-yellow-600' : 'text-red-600'
                                             }`}>
-                                                {session.successCount}/{session.requiredSuccesses} successful
+                                                {attempt.result === 'success' ? '✓' : attempt.result === 'failure' ? '~' : '✗'}
                                             </span>
                                         </div>
                                     </div>
@@ -358,13 +340,13 @@
                     )}
 
                     <div className="bg-white rounded-lg shadow-md p-6">
-                        <h2 className="text-xl font-bold text-gray-800 mb-4">Upcoming Sessions</h2>
+                        <h2 className="text-xl font-bold text-gray-800 mb-4">Upcoming Levels</h2>
                         <div className="space-y-2">
-                            {workout.durationSteps.slice(workout.currentSessionIndex, workout.currentSessionIndex + 5).map((duration, index) => (
+                            {workout.durationSteps.slice(workout.currentLevel, workout.currentLevel + 5).map((duration, index) => (
                                 <div key={index} className="border-b border-gray-200 pb-2">
                                     <div className="flex justify-between items-center">
                                         <span className="text-sm text-gray-600">
-                                            Session {completedCount + index + 1}
+                                            Level {workout.currentLevel + index + 1}
                                         </span>
                                         <span className="text-sm font-semibold text-blue-600">
                                             {duration}s
@@ -378,13 +360,20 @@
             );
         }
 
-        // Session Page Component
-        function SessionPage({ navigate, workoutId, sessionData }) {
+        // Training Page Component
+        function TrainingPage({ navigate, workoutId }) {
             const [workout, setWorkout] = useState(storage.getWorkout(workoutId));
             const [timerState, setTimerState] = useState('ready');
-            const [timeRemaining, setTimeRemaining] = useState(sessionData.targetDuration);
-            const [results, setResults] = useState([]);
+            const [timeRemaining, setTimeRemaining] = useState(0);
             const [intervalId, setIntervalId] = useState(null);
+            const [consecutiveSuccesses, setConsecutiveSuccesses] = useState(0);
+
+            useEffect(() => {
+                if (workout) {
+                    const currentDuration = workout.durationSteps[workout.currentLevel] || workout.durationSteps[workout.durationSteps.length - 1];
+                    setTimeRemaining(currentDuration);
+                }
+            }, [workout]);
 
             useEffect(() => {
                 return () => {
@@ -394,8 +383,9 @@
 
             const startTimer = () => {
                 setTimerState('running');
-                setTimeRemaining(sessionData.targetDuration);
-                
+                const currentDuration = workout.durationSteps[workout.currentLevel] || workout.durationSteps[workout.durationSteps.length - 1];
+                setTimeRemaining(currentDuration);
+
                 const id = setInterval(() => {
                     setTimeRemaining(prev => {
                         if (prev <= 1) {
@@ -406,79 +396,108 @@
                         return prev - 1;
                     });
                 }, 1000);
-                
+
                 setIntervalId(id);
             };
 
             const recordResult = (result) => {
-                const newResults = [...results, result];
-                setResults(newResults);
-                setTimerState('ready');
-                setTimeRemaining(sessionData.targetDuration);
-            };
+                const currentDuration = workout.durationSteps[workout.currentLevel] || workout.durationSteps[workout.durationSteps.length - 1];
 
-            const completeSession = () => {
-                const successCount = results.filter(r => r === 'success').length;
-                const criticalFailureCount = results.filter(r => r === 'critical').length;
-                
-                const session = {
-                    duration: sessionData.targetDuration,
-                    requiredSuccesses: sessionData.requiredSuccesses,
-                    successCount,
-                    results,
+                const attempt = {
+                    duration: currentDuration,
+                    level: workout.currentLevel,
+                    result,
                     completedAt: new Date().toISOString()
                 };
 
                 const updatedWorkout = { ...workout };
-                updatedWorkout.completedSessions.push(session);
+                if (!updatedWorkout.attempts) {
+                    updatedWorkout.attempts = [];
+                }
+                updatedWorkout.attempts.push(attempt);
 
-                if (successCount >= sessionData.requiredSuccesses) {
-                    updatedWorkout.currentSessionIndex = Math.min(
-                        updatedWorkout.currentSessionIndex + 1,
-                        updatedWorkout.durationSteps.length - 1
-                    );
-                    updatedWorkout.requiredSuccesses = 3;
-                } else if (criticalFailureCount > 0) {
-                    updatedWorkout.currentSessionIndex = Math.max(
-                        updatedWorkout.currentSessionIndex - 1,
+                let newConsecutiveSuccesses = consecutiveSuccesses;
+
+                // Update level based on result
+                if (result === 'success') {
+                    newConsecutiveSuccesses += 1;
+                    setConsecutiveSuccesses(newConsecutiveSuccesses);
+
+                    if (newConsecutiveSuccesses >= updatedWorkout.requiredSuccesses) {
+                        // Level up!
+                        updatedWorkout.currentLevel = Math.min(
+                            updatedWorkout.currentLevel + 1,
+                            updatedWorkout.durationSteps.length - 1
+                        );
+                        updatedWorkout.requiredSuccesses = 3;
+                        setConsecutiveSuccesses(0);
+                        newConsecutiveSuccesses = 0;
+                    }
+                } else if (result === 'critical') {
+                    // Level down on critical failure
+                    updatedWorkout.currentLevel = Math.max(
+                        updatedWorkout.currentLevel - 1,
                         0
                     );
                     updatedWorkout.requiredSuccesses = Math.min(
                         updatedWorkout.requiredSuccesses + 1,
                         5
                     );
+                    setConsecutiveSuccesses(0);
+                    newConsecutiveSuccesses = 0;
+                } else if (result === 'failure') {
+                    // Reset consecutive successes on regular failure
+                    setConsecutiveSuccesses(0);
+                    newConsecutiveSuccesses = 0;
                 }
 
                 storage.updateWorkout(workoutId, updatedWorkout);
-                navigate('workout', workoutId);
+                setWorkout(updatedWorkout);
+                setTimerState('ready');
+
+                const newDuration = updatedWorkout.durationSteps[updatedWorkout.currentLevel] || updatedWorkout.durationSteps[updatedWorkout.durationSteps.length - 1];
+                setTimeRemaining(newDuration);
             };
 
-            const successCount = results.filter(r => r === 'success').length;
-            const failureCount = results.filter(r => r === 'failure').length;
-            const criticalCount = results.filter(r => r === 'critical').length;
+            const currentDuration = workout.durationSteps[workout.currentLevel] || workout.durationSteps[workout.durationSteps.length - 1];
 
             return (
                 <div className="max-w-2xl mx-auto p-4">
                     <div className="bg-white rounded-lg shadow-md p-6">
-                        <div className="flex items-center mb-6">
+                        <div className="flex items-center justify-between mb-6">
+                            <div className="flex items-center">
+                                <button
+                                    onClick={() => navigate('main')}
+                                    className="text-blue-600 font-semibold mr-4"
+                                >
+                                    ← Back
+                                </button>
+                                <h1 className="text-2xl font-bold text-gray-800">{workout.name}</h1>
+                            </div>
                             <button
                                 onClick={() => navigate('workout', workoutId)}
-                                className="text-blue-600 font-semibold mr-4"
+                                className="text-blue-600 font-semibold text-sm"
                             >
-                                ← Back
+                                View Details
                             </button>
-                            <div>
-                                <h1 className="text-2xl font-bold text-gray-800">{workout.name}</h1>
-                                <p className="text-sm text-gray-600">Session in progress</p>
-                            </div>
                         </div>
 
                         <div className="bg-blue-50 p-6 rounded-lg mb-6">
-                            <p className="text-sm text-gray-600 mb-1">Target Duration</p>
-                            <p className="text-4xl font-bold text-blue-600 mb-3">{sessionData.targetDuration}s</p>
-                            <p className="text-sm text-gray-600">
-                                Required Successes: <span className="font-semibold">{sessionData.requiredSuccesses}</span>
-                            </p>
+                            <div className="flex justify-between items-center mb-3">
+                                <div>
+                                    <p className="text-sm text-gray-600 mb-1">Current Level</p>
+                                    <p className="text-4xl font-bold text-blue-600">{workout.currentLevel + 1}/{workout.totalLevels}</p>
+                                </div>
+                                <div className="text-right">
+                                    <p className="text-sm text-gray-600 mb-1">Duration</p>
+                                    <p className="text-4xl font-bold text-green-600">{currentDuration}s</p>
+                                </div>
+                            </div>
+                            <div className="bg-white bg-opacity-50 p-3 rounded">
+                                <p className="text-sm text-gray-700">
+                                    Consecutive Successes: <span className="font-semibold text-green-700">{consecutiveSuccesses}/{workout.requiredSuccesses}</span>
+                                </p>
+                            </div>
                         </div>
 
                         <div className="mb-6">
@@ -494,7 +513,7 @@
                                     onClick={startTimer}
                                     className="w-full bg-green-600 text-white py-4 rounded-lg font-semibold shadow-md hover:bg-green-700 transition"
                                 >
-                                    Start Timer
+                                    Start Attempt
                                 </button>
                             )}
 
@@ -517,59 +536,37 @@
                                         onClick={() => recordResult('failure')}
                                         className="w-full bg-yellow-600 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-yellow-700 transition"
                                     >
-                                        ~ Failure
+                                        ~ Failure (resets progress)
                                     </button>
                                     <button
                                         onClick={() => recordResult('critical')}
                                         className="w-full bg-red-600 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-red-700 transition"
                                     >
-                                        ✗ Critical Failure
+                                        ✗ Critical Failure (level down)
                                     </button>
                                 </div>
                             )}
                         </div>
 
-                        {results.length > 0 && (
+                        {workout.attempts && workout.attempts.length > 0 && (
                             <div className="bg-gray-50 p-4 rounded-lg mb-6">
-                                <h3 className="font-semibold text-gray-800 mb-3">Current Session Results</h3>
-                                <div className="grid grid-cols-3 gap-4 mb-4">
-                                    <div className="text-center">
-                                        <p className="text-2xl font-bold text-green-600">{successCount}</p>
-                                        <p className="text-xs text-gray-600">Success</p>
-                                    </div>
-                                    <div className="text-center">
-                                        <p className="text-2xl font-bold text-yellow-600">{failureCount}</p>
-                                        <p className="text-xs text-gray-600">Failure</p>
-                                    </div>
-                                    <div className="text-center">
-                                        <p className="text-2xl font-bold text-red-600">{criticalCount}</p>
-                                        <p className="text-xs text-gray-600">Critical</p>
-                                    </div>
-                                </div>
+                                <h3 className="font-semibold text-gray-800 mb-3">Recent Attempts</h3>
                                 <div className="flex flex-wrap gap-2">
-                                    {results.map((result, index) => (
+                                    {workout.attempts.slice(-10).reverse().map((attempt, index) => (
                                         <span
                                             key={index}
                                             className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                                                result === 'success' ? 'bg-green-200 text-green-800' :
-                                                result === 'failure' ? 'bg-yellow-200 text-yellow-800' :
+                                                attempt.result === 'success' ? 'bg-green-200 text-green-800' :
+                                                attempt.result === 'failure' ? 'bg-yellow-200 text-yellow-800' :
                                                 'bg-red-200 text-red-800'
                                             }`}
+                                            title={`Level ${attempt.level + 1} - ${attempt.duration}s`}
                                         >
-                                            {index + 1}
+                                            {attempt.result === 'success' ? '✓' : attempt.result === 'failure' ? '~' : '✗'}
                                         </span>
                                     ))}
                                 </div>
                             </div>
-                        )}
-
-                        {results.length > 0 && (
-                            <button
-                                onClick={completeSession}
-                                className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold shadow-md hover:bg-blue-700 transition"
-                            >
-                                Complete Session
-                            </button>
                         )}
                     </div>
                 </div>
