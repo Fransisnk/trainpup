@@ -49,7 +49,7 @@
                 // Calculate next increment based on current duration
                 let increment;
                 if (currentDuration < 60) {
-                    increment = Math.round(currentDuration * 0.7);
+                    increment = Math.round(currentDuration * 0.6);
                 } else if (currentDuration < 300) {
                     increment = Math.round(currentDuration * 0.50 / 30) * 30;
                 } else if (currentDuration < 1200) {
@@ -67,6 +67,19 @@
             steps.push(endDuration);
 
             return steps;
+        };
+
+        // Calculate required successes based on duration
+        const getRequiredSuccesses = (currentDuration) => {
+            if (currentDuration < 60) {
+                return 8;
+            } else if (currentDuration < 300) {
+                return 5;
+            } else if (currentDuration < 1200) {
+                return 2;
+            } else {
+                return 1;
+            }
         };
 
         // Generate random duration from normal distribution
@@ -188,7 +201,7 @@
                     durationSteps,
                     attempts: [],
                     currentLevel: 0,
-                    requiredSuccesses: 3,
+                    requiredSuccesses: getRequiredSuccesses(startDuration),
                     createdAt: new Date().toISOString()
                 };
 
@@ -414,6 +427,12 @@
             };
 
             const recordResult = (result) => {
+                // Stop the timer if it's running
+                if (intervalId) {
+                    clearInterval(intervalId);
+                    setIntervalId(null);
+                }
+
                 const currentDuration = workout.durationSteps[workout.currentLevel] || workout.durationSteps[workout.durationSteps.length - 1];
 
                 // Generate actual duration from normal distribution (mean = duration, sigma = 10% of duration)
@@ -449,7 +468,9 @@
                             updatedWorkout.currentLevel + 1,
                             updatedWorkout.durationSteps.length - 1
                         );
-                        updatedWorkout.requiredSuccesses = 3;
+                        // Calculate required successes for the new level
+                        const newLevelDuration = updatedWorkout.durationSteps[updatedWorkout.currentLevel];
+                        updatedWorkout.requiredSuccesses = getRequiredSuccesses(newLevelDuration);
                         setConsecutiveSuccesses(0);
                         newConsecutiveSuccesses = 0;
                     }
@@ -459,10 +480,9 @@
                         updatedWorkout.currentLevel - 1,
                         0
                     );
-                    updatedWorkout.requiredSuccesses = Math.min(
-                        updatedWorkout.requiredSuccesses + 1,
-                        5
-                    );
+                    // Recalculate required successes for the new level
+                    const newLevelDuration = updatedWorkout.durationSteps[updatedWorkout.currentLevel];
+                    updatedWorkout.requiredSuccesses = getRequiredSuccesses(newLevelDuration);
                     setConsecutiveSuccesses(0);
                     newConsecutiveSuccesses = 0;
                 } else if (result === 'failure') {
@@ -537,15 +557,11 @@
                                 </button>
                             )}
 
-                            {timerState === 'running' && (
-                                <div className="bg-yellow-50 p-4 rounded-lg text-center">
-                                    <p className="text-yellow-800 font-semibold">Timer running...</p>
-                                </div>
-                            )}
-
-                            {timerState === 'finished' && (
+                            {(timerState === 'running' || timerState === 'finished') && (
                                 <div className="space-y-2">
-                                    <p className="text-center font-semibold text-gray-700 mb-3">How did your dog do?</p>
+                                    <p className="text-center font-semibold text-gray-700 mb-3">
+                                        {timerState === 'running' ? 'Timer running - record result anytime:' : 'How did your dog do?'}
+                                    </p>
                                     <button
                                         onClick={() => recordResult('success')}
                                         className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-green-700 transition"
