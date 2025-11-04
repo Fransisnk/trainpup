@@ -392,12 +392,42 @@
             const [timerState, setTimerState] = useState('ready');
             const [timeRemaining, setTimeRemaining] = useState(0);
             const [intervalId, setIntervalId] = useState(null);
-            const [consecutiveSuccesses, setConsecutiveSuccesses] = useState(0);
+
+            // Calculate consecutive successes from stored attempts
+            const calculateConsecutiveSuccesses = (workout) => {
+                if (!workout || !workout.attempts || workout.attempts.length === 0) {
+                    return 0;
+                }
+
+                // Get attempts for the current level
+                const currentLevelAttempts = workout.attempts.filter(a => a.level === workout.currentLevel);
+
+                if (currentLevelAttempts.length === 0) {
+                    return 0;
+                }
+
+                // Count consecutive successes from the end
+                let count = 0;
+                for (let i = currentLevelAttempts.length - 1; i >= 0; i--) {
+                    if (currentLevelAttempts[i].result === 'success') {
+                        count++;
+                    } else {
+                        break;
+                    }
+                }
+                return count;
+            };
+
+            const [consecutiveSuccesses, setConsecutiveSuccesses] = useState(() =>
+                calculateConsecutiveSuccesses(storage.getWorkout(workoutId))
+            );
 
             useEffect(() => {
                 if (workout) {
                     const currentDuration = workout.durationSteps[workout.currentLevel] || workout.durationSteps[workout.durationSteps.length - 1];
                     setTimeRemaining(currentDuration);
+                    // Update consecutive successes when workout changes
+                    setConsecutiveSuccesses(calculateConsecutiveSuccesses(workout));
                 }
             }, [workout]);
 
