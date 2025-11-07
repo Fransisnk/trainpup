@@ -241,8 +241,36 @@
 
                             <div>
                                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Start Duration (seconds): {startDuration}
+                                    Start Duration (seconds)
                                 </label>
+                                <div className="flex items-center gap-3 mb-2">
+                                    <button
+                                        type="button"
+                                        onClick={() => setStartDuration(Math.max(1, startDuration - 1))}
+                                        className="px-3 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg font-semibold"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        min="1"
+                                        max="60"
+                                        value={startDuration}
+                                        onChange={(e) => {
+                                            const val = parseInt(e.target.value) || 1;
+                                            setStartDuration(Math.min(60, Math.max(1, val)));
+                                        }}
+                                        className="w-24 px-3 py-2 border border-gray-300 rounded-lg text-center focus:ring-2 focus:ring-blue-500"
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => setStartDuration(Math.min(60, startDuration + 1))}
+                                        className="px-3 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg font-semibold"
+                                    >
+                                        +
+                                    </button>
+                                    <span className="text-gray-600 text-sm">seconds</span>
+                                </div>
                                 <input
                                     type="range"
                                     min="1"
@@ -255,14 +283,64 @@
 
                             <div>
                                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    End Duration: {endDuration >= 60 ? `${Math.floor(endDuration / 60)}m ${endDuration % 60}s` : `${endDuration}s`}
+                                    End Duration
                                 </label>
+                                <div className="flex items-center gap-3 mb-2">
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            const decrement = endDuration <= 60 ? 1 : endDuration <= 300 ? 5 : endDuration <= 1200 ? 30 : 60;
+                                            setEndDuration(Math.max(10, endDuration - decrement));
+                                        }}
+                                        className="px-3 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg font-semibold"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        min="10"
+                                        max="7200"
+                                        value={endDuration}
+                                        onChange={(e) => {
+                                            const val = parseInt(e.target.value) || 10;
+                                            setEndDuration(Math.min(7200, Math.max(10, val)));
+                                        }}
+                                        className="w-24 px-3 py-2 border border-gray-300 rounded-lg text-center focus:ring-2 focus:ring-blue-500"
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            const increment = endDuration < 60 ? 1 : endDuration < 300 ? 5 : endDuration < 1200 ? 30 : 60;
+                                            setEndDuration(Math.min(7200, endDuration + increment));
+                                        }}
+                                        className="px-3 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg font-semibold"
+                                    >
+                                        +
+                                    </button>
+                                    <span className="text-gray-600 text-sm">
+                                        {endDuration >= 60 ? `(${Math.floor(endDuration / 60)}m ${endDuration % 60}s)` : 'seconds'}
+                                    </span>
+                                </div>
                                 <input
                                     type="range"
-                                    min="10"
-                                    max="7200"
-                                    value={endDuration}
-                                    onChange={(e) => setEndDuration(parseInt(e.target.value))}
+                                    min="0"
+                                    max="1000"
+                                    value={(() => {
+                                        // Non-linear scaling: convert endDuration to slider position
+                                        if (endDuration <= 60) return endDuration * 4; // 0-240: maps 10-60s (gives more precision)
+                                        if (endDuration <= 300) return 240 + (endDuration - 60) * 1.5; // 240-600: maps 60-300s
+                                        if (endDuration <= 1200) return 600 + (endDuration - 300) / 3; // 600-900: maps 300-1200s
+                                        return 900 + (endDuration - 1200) / 60; // 900-1000: maps 1200-7200s
+                                    })()}
+                                    onChange={(e) => {
+                                        const sliderVal = parseInt(e.target.value);
+                                        let duration;
+                                        if (sliderVal <= 240) duration = Math.round(sliderVal / 4);
+                                        else if (sliderVal <= 600) duration = Math.round(60 + (sliderVal - 240) / 1.5);
+                                        else if (sliderVal <= 900) duration = Math.round(300 + (sliderVal - 600) * 3);
+                                        else duration = Math.round(1200 + (sliderVal - 900) * 60);
+                                        setEndDuration(Math.min(7200, Math.max(10, duration)));
+                                    }}
                                     className="w-full"
                                 />
                             </div>
