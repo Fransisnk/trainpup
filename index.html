@@ -35,6 +35,12 @@
                     workouts[index] = { ...workouts[index], ...updates };
                     storage.saveWorkouts(workouts);
                 }
+            },
+            getTaskSets: () => JSON.parse(localStorage.getItem('taskSets') || '{}'),
+            saveTaskSet: (name, data) => {
+                const taskSets = storage.getTaskSets();
+                taskSets[name] = data;
+                localStorage.setItem('taskSets', JSON.stringify(taskSets));
             }
         };
 
@@ -93,6 +99,22 @@
             return Math.max(0.1, Math.round(sample * 10) / 10);
         };
 
+        // Load task sets from JSON (for demo, would normally use fetch)
+        const loadTaskSetFromJSON = async (filename) => {
+            try {
+                const response = await fetch(`task_sets/${filename}.json`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                storage.saveTaskSet(filename, data);
+                return data;
+            } catch (error) {
+                console.error('Error loading task set:', error);
+                return null;
+            }
+        };
+
         // Main App Component
         function App() {
             const [currentPage, setCurrentPage] = useState('main');
@@ -106,7 +128,9 @@
             return (
                 <div className="min-h-screen pb-20">
                     {currentPage === 'main' && <MainPage navigate={navigate} />}
+                    {currentPage === 'choose-workout-type' && <ChooseWorkoutTypePage navigate={navigate} />}
                     {currentPage === 'new-workout' && <NewWorkoutPage navigate={navigate} />}
+                    {currentPage === 'new-taskset-workout' && <NewTaskSetWorkoutPage navigate={navigate} />}
                     {currentPage === 'workout' && <WorkoutPage navigate={navigate} workoutId={selectedWorkoutId} />}
                     {currentPage === 'training' && <TrainingPage navigate={navigate} workoutId={selectedWorkoutId} />}
                 </div>
@@ -133,7 +157,7 @@
                     </div>
 
                     <button
-                        onClick={() => navigate('new-workout')}
+                        onClick={() => navigate('choose-workout-type')}
                         className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold mb-6 shadow-md hover:bg-blue-700 transition"
                     >
                         + Create New Workout
@@ -168,6 +192,171 @@
                                 </div>
                             ))
                         )}
+                    </div>
+                </div>
+            );
+        }
+
+        // Choose Workout Type Page Component
+        function ChooseWorkoutTypePage({ navigate }) {
+            return (
+                <div className="max-w-2xl mx-auto p-4">
+                    <div className="bg-white rounded-lg shadow-md p-6">
+                        <div className="flex items-center mb-6">
+                            <button
+                                onClick={() => navigate('main')}
+                                className="text-blue-600 font-semibold mr-4"
+                            >
+                                ← Back
+                            </button>
+                            <h1 className="text-2xl font-bold text-gray-800">Choose Workout Type</h1>
+                        </div>
+
+                        <div className="space-y-4">
+                            <button
+                                onClick={() => navigate('new-workout')}
+                                className="w-full bg-blue-50 hover:bg-blue-100 border-2 border-blue-600 text-left p-6 rounded-lg transition"
+                            >
+                                <h3 className="text-xl font-bold text-blue-800 mb-2">Duration-Based Workout</h3>
+                                <p className="text-gray-600">Progressive duration training with automatic level increments</p>
+                            </button>
+
+                            <button
+                                onClick={() => navigate('new-taskset-workout')}
+                                className="w-full bg-green-50 hover:bg-green-100 border-2 border-green-600 text-left p-6 rounded-lg transition"
+                            >
+                                <h3 className="text-xl font-bold text-green-800 mb-2">Task Set Workout</h3>
+                                <p className="text-gray-600">Protocol-based training with specific tasks to complete</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // New Task Set Workout Page Component
+        function NewTaskSetWorkoutPage({ navigate }) {
+            const [selectedTaskSet, setSelectedTaskSet] = useState(null);
+            const [taskSetData, setTaskSetData] = useState(null);
+            const [availableTaskSets, setAvailableTaskSets] = useState(['relaxation']);
+            const [loading, setLoading] = useState(false);
+            const [error, setError] = useState(null);
+
+            const loadTaskSet = async (filename) => {
+                setLoading(true);
+                setError(null);
+                try {
+                    const data = await loadTaskSetFromJSON(filename);
+                    if (data) {
+                        setTaskSetData(data);
+                        setSelectedTaskSet(filename);
+                    } else {
+                        setError('Failed to load task set. Make sure the file exists.');
+                    }
+                } catch (err) {
+                    setError('Error loading task set: ' + err.message);
+                    console.error('Load error:', err);
+                } finally {
+                    setLoading(false);
+                }
+            };
+
+            const createWorkout = () => {
+                if (!taskSetData) {
+                    alert('Please select a task set');
+                    return;
+                }
+
+                const newWorkout = {
+                    id: Date.now().toString(),
+                    name: taskSetData.protocol,
+                    type: 'taskset',
+                    taskSetName: selectedTaskSet,
+                    taskSets: taskSetData.task_sets,
+                    totalLevels: taskSetData.task_sets.length,
+                    currentLevel: 0,
+                    currentTaskIndex: 0,
+                    attempts: [],
+                    createdAt: new Date().toISOString()
+                };
+
+                const workouts = storage.getWorkouts();
+                workouts.push(newWorkout);
+                storage.saveWorkouts(workouts);
+
+                navigate('main');
+            };
+
+            return (
+                <div className="max-w-2xl mx-auto p-4">
+                    <div className="bg-white rounded-lg shadow-md p-6">
+                        <div className="flex items-center mb-6">
+                            <button
+                                onClick={() => navigate('choose-workout-type')}
+                                className="text-blue-600 font-semibold mr-4"
+                            >
+                                ← Back
+                            </button>
+                            <h1 className="text-2xl font-bold text-gray-800">Create Task Set Workout</h1>
+                        </div>
+
+                        <div className="space-y-4">
+                            <div>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                    Select Task Set
+                                </label>
+                                <div className="space-y-2">
+                                    {availableTaskSets.map(taskSetName => (
+                                        <button
+                                            key={taskSetName}
+                                            onClick={() => loadTaskSet(taskSetName)}
+                                            disabled={loading}
+                                            className={`w-full text-left p-4 rounded-lg border-2 transition ${
+                                                selectedTaskSet === taskSetName
+                                                    ? 'border-green-600 bg-green-50'
+                                                    : 'border-gray-300 hover:border-green-400 bg-white'
+                                            } ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                        >
+                                            <h3 className="font-semibold text-gray-800 capitalize">
+                                                {taskSetName} {loading && selectedTaskSet === taskSetName ? '(Loading...)' : ''}
+                                            </h3>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {error && (
+                                <div className="bg-red-50 border-l-4 border-red-400 p-4 rounded">
+                                    <p className="text-sm text-red-700">{error}</p>
+                                </div>
+                            )}
+
+                            {taskSetData && (
+                                <div className="bg-blue-50 p-4 rounded-lg">
+                                    <h3 className="font-semibold text-gray-800 mb-2">Protocol Details</h3>
+                                    <p className="text-sm text-gray-700 mb-2">{taskSetData.protocol}</p>
+                                    <p className="text-sm text-gray-700">
+                                        <span className="font-semibold">{taskSetData.task_sets.length}</span> sets with{' '}
+                                        <span className="font-semibold">
+                                            {taskSetData.task_sets.reduce((sum, set) => sum + set.tasks.length, 0)}
+                                        </span>{' '}
+                                        total tasks
+                                    </p>
+                                </div>
+                            )}
+
+                            <button
+                                onClick={createWorkout}
+                                disabled={!taskSetData || loading}
+                                className={`w-full py-3 rounded-lg font-semibold shadow-md transition mt-6 ${
+                                    taskSetData && !loading
+                                        ? 'bg-green-600 text-white hover:bg-green-700 cursor-pointer'
+                                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                }`}
+                            >
+                                Create Workout
+                            </button>
+                        </div>
                     </div>
                 </div>
             );
@@ -387,8 +576,98 @@
                 );
             }
 
-            const currentDuration = workout.durationSteps[workout.currentLevel] || workout.durationSteps[workout.durationSteps.length - 1];
+            const isTaskSetWorkout = workout.type === 'taskset';
+            const currentDuration = !isTaskSetWorkout
+                ? (workout.durationSteps[workout.currentLevel] || workout.durationSteps[workout.durationSteps.length - 1])
+                : 0;
 
+            // Task-set workout details page
+            if (isTaskSetWorkout) {
+                const currentSet = workout.taskSets[workout.currentLevel];
+                const totalTasksInSet = currentSet ? currentSet.tasks.length : 0;
+                const completedTasksInSet = workout.currentTaskIndex;
+
+                return (
+                    <div className="max-w-2xl mx-auto p-4">
+                        <div className="bg-white rounded-lg shadow-md p-6 mb-4">
+                            <div className="flex items-center mb-4">
+                                <button
+                                    onClick={() => navigate('training', workoutId)}
+                                    className="text-blue-600 font-semibold mr-4"
+                                >
+                                    ← Back to Training
+                                </button>
+                                <h1 className="text-2xl font-bold text-gray-800">{workout.name}</h1>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-4 mb-6">
+                                <div className="bg-green-50 p-4 rounded-lg">
+                                    <p className="text-sm text-gray-600">Current Set</p>
+                                    <p className="text-2xl font-bold text-green-600">{workout.currentLevel + 1}/{workout.totalLevels}</p>
+                                </div>
+                                <div className="bg-blue-50 p-4 rounded-lg">
+                                    <p className="text-sm text-gray-600">Tasks in Set</p>
+                                    <p className="text-2xl font-bold text-blue-600">{completedTasksInSet}/{totalTasksInSet}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {workout.attempts && workout.attempts.length > 0 && (
+                            <div className="bg-white rounded-lg shadow-md p-6 mb-4">
+                                <h2 className="text-xl font-bold text-gray-800 mb-4">Past Attempts</h2>
+                                <div className="space-y-2">
+                                    {workout.attempts.slice().reverse().map((attempt, index) => (
+                                        <div key={index} className="border-b border-gray-200 pb-2">
+                                            <div className="flex justify-between items-center">
+                                                <div className="flex-1">
+                                                    <div className="text-sm text-gray-600">
+                                                        {new Date(attempt.completedAt).toLocaleDateString()} {new Date(attempt.completedAt).toLocaleTimeString()}
+                                                    </div>
+                                                    <div className="text-xs text-gray-500">
+                                                        Set {attempt.level + 1}, Task {attempt.taskIndex + 1}
+                                                    </div>
+                                                    <div className="text-sm text-gray-700 mt-1">
+                                                        {attempt.task}
+                                                    </div>
+                                                </div>
+                                                <span className={`text-sm font-semibold ${
+                                                    attempt.result === 'success' ? 'text-green-600' : 'text-yellow-600'
+                                                }`}>
+                                                    {attempt.result === 'success' ? '✓' : '~'}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        <div className="bg-white rounded-lg shadow-md p-6">
+                            <h2 className="text-xl font-bold text-gray-800 mb-4">Upcoming Tasks</h2>
+                            {currentSet && (
+                                <div className="space-y-2">
+                                    {currentSet.tasks.slice(workout.currentTaskIndex, workout.currentTaskIndex + 5).map((task, index) => (
+                                        <div key={index} className="border-b border-gray-200 pb-2">
+                                            <div className="flex justify-between items-center">
+                                                <span className="text-sm text-gray-700">
+                                                    {task.task}
+                                                </span>
+                                                {task.duration && (
+                                                    <span className="text-xs font-semibold text-green-600">
+                                                        {task.duration}s
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                );
+            }
+
+            // Duration-based workout details page
             return (
                 <div className="max-w-2xl mx-auto p-4">
                     <div className="bg-white rounded-lg shadow-md p-6 mb-4">
@@ -471,6 +750,9 @@
             const [timeRemaining, setTimeRemaining] = useState(0);
             const [intervalId, setIntervalId] = useState(null);
 
+            // Check if this is a task-set workout
+            const isTaskSetWorkout = workout && workout.type === 'taskset';
+
             // Calculate consecutive successes from stored attempts
             const calculateConsecutiveSuccesses = (workout) => {
                 if (!workout || !workout.attempts || workout.attempts.length === 0) {
@@ -501,7 +783,7 @@
             );
 
             useEffect(() => {
-                if (workout) {
+                if (workout && workout.type !== 'taskset') {
                     const currentDuration = workout.durationSteps[workout.currentLevel] || workout.durationSteps[workout.durationSteps.length - 1];
                     setTimeRemaining(currentDuration);
                     // Update consecutive successes when workout changes
@@ -532,6 +814,46 @@
                 }, 1000);
 
                 setIntervalId(id);
+            };
+
+            const recordTaskCompletion = (result) => {
+                const updatedWorkout = { ...workout };
+                const currentSet = updatedWorkout.taskSets[updatedWorkout.currentLevel];
+                const currentTask = currentSet.tasks[updatedWorkout.currentTaskIndex];
+
+                const attempt = {
+                    level: updatedWorkout.currentLevel,
+                    taskIndex: updatedWorkout.currentTaskIndex,
+                    task: currentTask.task,
+                    result,
+                    completedAt: new Date().toISOString(),
+                    timestamp: Date.now()
+                };
+
+                if (!updatedWorkout.attempts) {
+                    updatedWorkout.attempts = [];
+                }
+                updatedWorkout.attempts.push(attempt);
+
+                // For task sets: only success moves forward, failure stays on same task
+                if (result === 'success') {
+                    // Move to next task
+                    updatedWorkout.currentTaskIndex += 1;
+
+                    // Check if we completed all tasks in current set
+                    if (updatedWorkout.currentTaskIndex >= currentSet.tasks.length) {
+                        // Move to next set (level)
+                        updatedWorkout.currentLevel = Math.min(
+                            updatedWorkout.currentLevel + 1,
+                            updatedWorkout.taskSets.length - 1
+                        );
+                        updatedWorkout.currentTaskIndex = 0;
+                    }
+                }
+                // For failure, we stay on the same task (no reset, just try again)
+
+                storage.updateWorkout(workoutId, updatedWorkout);
+                setWorkout(updatedWorkout);
             };
 
             const recordResult = (result) => {
@@ -607,8 +929,193 @@
                 setTimeRemaining(newDuration);
             };
 
-            const currentDuration = workout.durationSteps[workout.currentLevel] || workout.durationSteps[workout.durationSteps.length - 1];
+            // Handle missing workout
+            if (!workout) {
+                return (
+                    <div className="max-w-2xl mx-auto p-4">
+                        <div className="bg-white rounded-lg shadow-md p-6">
+                            <p className="text-red-600">Workout not found</p>
+                            <button
+                                onClick={() => navigate('main')}
+                                className="mt-4 text-blue-600 font-semibold"
+                            >
+                                ← Back to Main
+                            </button>
+                        </div>
+                    </div>
+                );
+            }
 
+            // Get current task info for task-set workouts
+            let currentTask = null;
+            let currentSet = null;
+            let totalTasksInSet = 0;
+            if (isTaskSetWorkout && workout.taskSets && workout.taskSets[workout.currentLevel]) {
+                currentSet = workout.taskSets[workout.currentLevel];
+                totalTasksInSet = currentSet.tasks.length;
+                currentTask = currentSet.tasks[workout.currentTaskIndex] || null;
+            }
+
+            const currentDuration = !isTaskSetWorkout
+                ? (workout.durationSteps[workout.currentLevel] || workout.durationSteps[workout.durationSteps.length - 1])
+                : 0;
+
+            // Render task-set workout UI
+            if (isTaskSetWorkout) {
+                const hasTimer = currentTask && currentTask.duration;
+
+                return (
+                    <div className="max-w-2xl mx-auto p-4">
+                        <div className="bg-white rounded-lg shadow-md p-6">
+                            <div className="flex items-center justify-between mb-6">
+                                <div className="flex items-center">
+                                    <button
+                                        onClick={() => navigate('main')}
+                                        className="text-blue-600 font-semibold mr-4"
+                                    >
+                                        ← Back
+                                    </button>
+                                    <h1 className="text-2xl font-bold text-gray-800">{workout.name}</h1>
+                                </div>
+                                <button
+                                    onClick={() => navigate('workout', workoutId)}
+                                    className="text-blue-600 font-semibold text-sm"
+                                >
+                                    View Details
+                                </button>
+                            </div>
+
+                            <div className="bg-green-50 p-6 rounded-lg mb-6">
+                                <div className="flex justify-between items-center mb-3">
+                                    <div>
+                                        <p className="text-sm text-gray-600 mb-1">Current Set</p>
+                                        <p className="text-4xl font-bold text-green-600">{workout.currentLevel + 1}/{workout.totalLevels}</p>
+                                    </div>
+                                    <div className="text-right">
+                                        <p className="text-sm text-gray-600 mb-1">Task Progress</p>
+                                        <p className="text-4xl font-bold text-blue-600">{workout.currentTaskIndex + 1}/{totalTasksInSet}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {currentTask && (
+                                <div className="mb-6">
+                                    <div className="bg-blue-50 p-6 rounded-lg mb-4">
+                                        <h3 className="text-sm font-semibold text-gray-600 mb-2">Current Task:</h3>
+                                        <p className="text-xl font-semibold text-gray-800 mb-3">{currentTask.task}</p>
+                                        {currentTask.note && (
+                                            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 mt-3">
+                                                <p className="text-sm text-gray-700"><span className="font-semibold">Note:</span> {currentTask.note}</p>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {hasTimer && (
+                                        <div className="mb-4">
+                                            <div className={`text-center py-12 rounded-lg mb-4 ${
+                                                timerState === 'running' ? 'bg-green-100' :
+                                                timerState === 'finished' ? 'bg-yellow-100' : 'bg-gray-100'
+                                            }`}>
+                                                <p className="text-6xl font-bold text-gray-800">{timeRemaining}s</p>
+                                                <p className="text-sm text-gray-600 mt-2">Target: {currentTask.duration}s</p>
+                                            </div>
+
+                                            {timerState === 'ready' && (
+                                                <button
+                                                    onClick={() => {
+                                                        setTimerState('running');
+                                                        setTimeRemaining(currentTask.duration);
+                                                        const id = setInterval(() => {
+                                                            setTimeRemaining(prev => {
+                                                                if (prev <= 1) {
+                                                                    clearInterval(id);
+                                                                    setTimerState('finished');
+                                                                    return 0;
+                                                                }
+                                                                return prev - 1;
+                                                            });
+                                                        }, 1000);
+                                                        setIntervalId(id);
+                                                    }}
+                                                    className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold shadow-md hover:bg-blue-700 transition"
+                                                >
+                                                    Start Timer
+                                                </button>
+                                            )}
+                                        </div>
+                                    )}
+
+                                    <div className="space-y-2">
+                                        <p className="text-center font-semibold text-gray-700 mb-3">
+                                            {hasTimer && timerState === 'ready' ? 'Or record result without timer:' : 'Did your dog complete this task?'}
+                                        </p>
+                                        <button
+                                            onClick={() => {
+                                                if (intervalId) {
+                                                    clearInterval(intervalId);
+                                                    setIntervalId(null);
+                                                }
+                                                setTimerState('ready');
+                                                recordTaskCompletion('success');
+                                            }}
+                                            className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-green-700 transition"
+                                        >
+                                            ✓ Success - Next Task
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                if (intervalId) {
+                                                    clearInterval(intervalId);
+                                                    setIntervalId(null);
+                                                }
+                                                setTimerState('ready');
+                                                recordTaskCompletion('failure');
+                                            }}
+                                            className="w-full bg-yellow-600 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-yellow-700 transition"
+                                        >
+                                            ~ Try Again
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {!currentTask && (
+                                <div className="bg-green-100 p-8 rounded-lg text-center">
+                                    <h2 className="text-2xl font-bold text-green-800 mb-2">Congratulations!</h2>
+                                    <p className="text-gray-700">You've completed all tasks in this workout!</p>
+                                </div>
+                            )}
+
+                            {workout.attempts && workout.attempts.length > 0 && (
+                                <div className="bg-gray-50 p-4 rounded-lg mb-6">
+                                    <h3 className="font-semibold text-gray-800 mb-3">Recent Attempts</h3>
+                                    <div className="flex flex-wrap gap-2">
+                                        {workout.attempts.slice(-10).reverse().map((attempt, index) => {
+                                            const attemptDate = new Date(attempt.completedAt);
+                                            const tooltipText = `${attemptDate.toLocaleDateString()} ${attemptDate.toLocaleTimeString()}\nSet ${attempt.level + 1}, Task ${attempt.taskIndex + 1}`;
+
+                                            return (
+                                                <span
+                                                    key={index}
+                                                    className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                                                        attempt.result === 'success' ? 'bg-green-200 text-green-800' :
+                                                        'bg-yellow-200 text-yellow-800'
+                                                    }`}
+                                                    title={tooltipText}
+                                                >
+                                                    {attempt.result === 'success' ? '✓' : '~'}
+                                                </span>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                );
+            }
+
+            // Render duration-based workout UI
             return (
                 <div className="max-w-2xl mx-auto p-4">
                     <div className="bg-white rounded-lg shadow-md p-6">
