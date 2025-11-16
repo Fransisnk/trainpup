@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { storage } from '../utils/storage';
-import { getRequiredSuccesses, normalRandom } from '../utils/calculations';
+import { normalRandom } from '../utils/calculations';
 import type { NavigateFunction, Workout, DurationWorkout, TaskSetWorkout, Attempt } from '../types';
 
 interface TrainingPageProps {
@@ -50,9 +50,10 @@ function TrainingPage({ navigate, workoutId }: TrainingPageProps) {
   );
 
   useEffect(() => {
-    if (workout && workout.type !== 'taskset' && 'durationSteps' in workout) {
+    if (workout && workout.type === 'duration') {
       const durationWorkout = workout as DurationWorkout;
-      const currentDuration = durationWorkout.durationSteps[durationWorkout.currentLevel] || durationWorkout.durationSteps[durationWorkout.durationSteps.length - 1];
+      const currentTask = durationWorkout.taskSets[durationWorkout.currentLevel]?.tasks[0];
+      const currentDuration = currentTask?.duration || 0;
       setTimeRemaining(currentDuration);
       // Update consecutive successes when workout changes
       setConsecutiveSuccesses(calculateConsecutiveSuccesses(workout));
@@ -69,7 +70,8 @@ function TrainingPage({ navigate, workoutId }: TrainingPageProps) {
     if (!workout || workout.type === 'taskset') return;
     const durationWorkout = workout as DurationWorkout;
     setTimerState('running');
-    const currentDuration = durationWorkout.durationSteps[durationWorkout.currentLevel] || durationWorkout.durationSteps[durationWorkout.durationSteps.length - 1];
+    const currentTask = durationWorkout.taskSets[durationWorkout.currentLevel]?.tasks[0];
+    const currentDuration = currentTask?.duration || 0;
 
     // Generate actual duration from normal distribution (mean = duration, sigma = 10% of duration)
     const sigma = currentDuration * 0.1;
@@ -142,7 +144,9 @@ function TrainingPage({ navigate, workoutId }: TrainingPageProps) {
       setIntervalId(null);
     }
 
-    const currentDuration = durationWorkout.durationSteps[durationWorkout.currentLevel] || durationWorkout.durationSteps[durationWorkout.durationSteps.length - 1];
+    const currentTask = durationWorkout.taskSets[durationWorkout.currentLevel]?.tasks[0];
+    const currentDuration = currentTask?.duration || 0;
+    const requiredSuccesses = currentTask?.quantity || 1;
 
     // Use the actual duration that was set when timer started
     const durationToRecord = actualDuration || currentDuration;
@@ -170,15 +174,12 @@ function TrainingPage({ navigate, workoutId }: TrainingPageProps) {
       newConsecutiveSuccesses += 1;
       setConsecutiveSuccesses(newConsecutiveSuccesses);
 
-      if (newConsecutiveSuccesses >= updatedWorkout.requiredSuccesses) {
+      if (newConsecutiveSuccesses >= requiredSuccesses) {
         // Level up!
         updatedWorkout.currentLevel = Math.min(
           updatedWorkout.currentLevel + 1,
-          updatedWorkout.durationSteps.length - 1
+          updatedWorkout.taskSets.length - 1
         );
-        // Calculate required successes for the new level
-        const newLevelDuration = updatedWorkout.durationSteps[updatedWorkout.currentLevel];
-        updatedWorkout.requiredSuccesses = getRequiredSuccesses(newLevelDuration);
         setConsecutiveSuccesses(0);
         newConsecutiveSuccesses = 0;
       }
@@ -188,9 +189,6 @@ function TrainingPage({ navigate, workoutId }: TrainingPageProps) {
         updatedWorkout.currentLevel - 1,
         0
       );
-      // Recalculate required successes for the new level
-      const newLevelDuration = updatedWorkout.durationSteps[updatedWorkout.currentLevel];
-      updatedWorkout.requiredSuccesses = getRequiredSuccesses(newLevelDuration);
       setConsecutiveSuccesses(0);
       newConsecutiveSuccesses = 0;
     } else if (result === 'failure') {
@@ -204,7 +202,8 @@ function TrainingPage({ navigate, workoutId }: TrainingPageProps) {
     setTimerState('ready');
     setActualDuration(null); // Reset for next attempt
 
-    const newDuration = updatedWorkout.durationSteps[updatedWorkout.currentLevel] || updatedWorkout.durationSteps[updatedWorkout.durationSteps.length - 1];
+    const newTask = updatedWorkout.taskSets[updatedWorkout.currentLevel]?.tasks[0];
+    const newDuration = newTask?.duration || 0;
     setTimeRemaining(newDuration);
   };
 
@@ -233,7 +232,7 @@ function TrainingPage({ navigate, workoutId }: TrainingPageProps) {
 
   const durationWorkout = !isTaskSetWorkout ? workout as DurationWorkout : null;
   const currentDuration = durationWorkout
-    ? (durationWorkout.durationSteps[durationWorkout.currentLevel] || durationWorkout.durationSteps[durationWorkout.durationSteps.length - 1])
+    ? (durationWorkout.taskSets[durationWorkout.currentLevel]?.tasks[0]?.duration || 0)
     : 0;
 
   // Render task-set workout UI
@@ -428,7 +427,7 @@ function TrainingPage({ navigate, workoutId }: TrainingPageProps) {
           </div>
           <div className="bg-white bg-opacity-50 p-3 rounded">
             <p className="text-sm text-gray-700">
-              Consecutive Successes: <span className="font-semibold text-green-700">{consecutiveSuccesses}/{durationWorkout.requiredSuccesses}</span>
+              Consecutive Successes: <span className="font-semibold text-green-700">{consecutiveSuccesses}/{durationWorkout.taskSets[durationWorkout.currentLevel]?.tasks[0]?.quantity || 1}</span>
             </p>
           </div>
         </div>

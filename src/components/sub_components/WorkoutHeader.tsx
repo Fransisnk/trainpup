@@ -29,8 +29,8 @@ function WorkoutHeader({ workout, navigate }: WorkoutHeaderProps) {
     };
   } else {
     const durationWorkout = workout as DurationWorkout;
-    const currentDuration = durationWorkout.durationSteps[durationWorkout.currentLevel] ||
-                           durationWorkout.durationSteps[durationWorkout.durationSteps.length - 1];
+    const currentTask = durationWorkout.taskSets[durationWorkout.currentLevel]?.tasks[0];
+    const currentDuration = currentTask?.duration || 0;
 
     primaryStat = {
       label: 'Current Level',

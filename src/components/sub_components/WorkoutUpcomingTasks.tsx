@@ -38,23 +38,30 @@ function WorkoutUpcomingTasks({ workout }: WorkoutUpcomingTasksProps) {
     );
   } else {
     const durationWorkout = workout as DurationWorkout;
+    const upcomingLevels = durationWorkout.taskSets.slice(
+      durationWorkout.currentLevel,
+      durationWorkout.currentLevel + 5
+    );
 
     return (
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-xl font-bold text-gray-800 mb-4">Upcoming Levels</h2>
         <div className="space-y-2">
-          {durationWorkout.durationSteps.slice(durationWorkout.currentLevel, durationWorkout.currentLevel + 5).map((duration, index) => (
-            <div key={index} className="border-b border-gray-200 pb-2">
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-gray-600">
-                  Level {durationWorkout.currentLevel + index + 1}
-                </span>
-                <span className="text-sm font-semibold text-blue-600">
-                  {duration}s
-                </span>
+          {upcomingLevels.map((taskSet, index) => {
+            const duration = taskSet.tasks[0]?.duration || 0;
+            return (
+              <div key={index} className="border-b border-gray-200 pb-2">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600">
+                    Level {durationWorkout.currentLevel + index + 1}
+                  </span>
+                  <span className="text-sm font-semibold text-blue-600">
+                    {duration}s
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     );

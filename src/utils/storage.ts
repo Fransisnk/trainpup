@@ -1,8 +1,13 @@
 import type { Workout, TaskSetData } from '../types';
+import { migrateWorkout } from './migration';
 
 // Utility functions for localStorage
 export const storage = {
-  getWorkouts: (): Workout[] => JSON.parse(localStorage.getItem('workouts') || '[]'),
+  getWorkouts: (): Workout[] => {
+    const workouts = JSON.parse(localStorage.getItem('workouts') || '[]');
+    // Auto-migrate old workouts on load
+    return workouts.map((workout: any) => migrateWorkout(workout));
+  },
   saveWorkouts: (workouts: Workout[]): void => localStorage.setItem('workouts', JSON.stringify(workouts)),
   getWorkout: (id: string): Workout | undefined => storage.getWorkouts().find(w => w.id === id),
   updateWorkout: (id: string, updates: Partial<Workout>): void => {

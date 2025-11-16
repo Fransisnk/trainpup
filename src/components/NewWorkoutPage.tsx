@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { storage } from '../utils/storage';
 import { calculateDurationSteps, getRequiredSuccesses } from '../utils/calculations';
-import type { NavigateFunction, DurationWorkout } from '../types';
+import type { NavigateFunction, DurationWorkout, TaskSet } from '../types';
 
 interface NewWorkoutPageProps {
   navigate: NavigateFunction;
@@ -27,15 +27,26 @@ function NewWorkoutPage({ navigate }: NewWorkoutPageProps) {
       return;
     }
 
+    // Create task sets from duration steps
+    const taskSets: TaskSet[] = durationSteps.map((duration) => ({
+      tasks: [{
+        task: name.trim(),
+        duration: duration,
+        quantity: getRequiredSuccesses(duration)
+      }]
+    }));
+
     const newWorkout: DurationWorkout = {
       id: Date.now().toString(),
       name: name.trim(),
+      type: 'duration' as const,
       totalLevels: numLevels,
-      durationSteps,
       attempts: [],
       currentLevel: 0,
-      requiredSuccesses: getRequiredSuccesses(startDuration),
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
+      taskSets,
+      taskSetName: 'duration',
+      currentTaskIndex: 0
     };
 
     const workouts = storage.getWorkouts();

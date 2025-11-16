@@ -16,6 +16,8 @@ export interface Task {
   task: string;
   duration?: number;
   note?: string;
+  quantity?: number;
+  tags?: string[];
 }
 
 export interface TaskSet {
@@ -27,29 +29,25 @@ export interface TaskSetData {
   task_sets: TaskSet[];
 }
 
-export interface DurationWorkout {
+export interface WorkoutInterface {
   id: string;
   name: string;
-  type?: 'duration';
+  type?: string;
   totalLevels: number;
-  durationSteps: number[];
-  attempts: Attempt[];
   currentLevel: number;
-  requiredSuccesses: number;
+  attempts: Attempt[];
   createdAt: string;
+  taskSets: TaskSet[];
+  taskSetName: string;
+  currentTaskIndex: number;
 }
 
-export interface TaskSetWorkout {
-  id: string;
-  name: string;
-  type: 'taskset';
-  taskSetName: string;
-  taskSets: TaskSet[];
-  totalLevels: number;
-  currentLevel: number;
-  currentTaskIndex: number;
-  attempts: Attempt[];
-  createdAt: string;
+export interface DurationWorkout extends WorkoutInterface{
+  type?: 'duration';
+}
+
+export interface TaskSetWorkout extends WorkoutInterface{
+  type?: 'taskset';
 }
 
 export type Workout = DurationWorkout | TaskSetWorkout;
