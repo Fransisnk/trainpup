@@ -18,10 +18,4 @@ export const storage = {
       storage.saveWorkouts(workouts);
     }
   },
-  getTaskSets: (): Record<string, TaskSetData> => JSON.parse(localStorage.getItem('taskSets') || '{}'),
-  saveTaskSet: (name: string, data: TaskSetData): void => {
-    const taskSets = storage.getTaskSets();
-    taskSets[name] = data;
-    localStorage.setItem('taskSets', JSON.stringify(taskSets));
-  }
 };

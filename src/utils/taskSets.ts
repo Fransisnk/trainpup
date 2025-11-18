@@ -9,7 +9,6 @@ export const loadTaskSetFromJSON = async (filename: string): Promise<TaskSetData
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    storage.saveTaskSet(filename, data);
     return data;
   } catch (error) {
     console.error('Error loading task set:', error);
