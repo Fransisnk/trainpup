@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { storage } from '../utils/storage';
-import { loadTaskSetFromJSON } from '../utils/taskSets';
+import { loadTaskSetFromJSON, getAvailableTaskSets } from '../utils/taskSets';
 import type { NavigateFunction, TaskSetData, TaskSetWorkout } from '../types';
 
 interface NewTaskSetWorkoutPageProps {
@@ -10,9 +10,15 @@ interface NewTaskSetWorkoutPageProps {
 function NewTaskSetWorkoutPage({ navigate }: NewTaskSetWorkoutPageProps) {
   const [selectedTaskSet, setSelectedTaskSet] = useState<string | null>(null);
   const [taskSetData, setTaskSetData] = useState<TaskSetData | null>(null);
-  const [availableTaskSets] = useState(['relaxation']);
+  const [availableTaskSets, setAvailableTaskSets] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Load available task sets on component mount
+    const taskSets = getAvailableTaskSets();
+    setAvailableTaskSets(taskSets);
+  }, []);
 
   const loadTaskSet = async (filename: string) => {
     setLoading(true);

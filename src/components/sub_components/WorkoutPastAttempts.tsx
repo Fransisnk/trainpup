@@ -4,12 +4,9 @@ interface WorkoutPastAttemptsProps {
   workout: Workout;
 }
 
-function WorkoutPastAttempts({ workout }: WorkoutPastAttemptsProps) {
-  if (!workout.attempts || workout.attempts.length === 0) {
-    return null;
-  }
 
-  return (
+function pastAttemptsTable(workout: Workout) {
+    return (
     <div className="bg-white rounded-lg shadow-md p-6 mb-4">
       <h2 className="text-xl font-bold text-gray-800 mb-4">Past Attempts</h2>
       <div className="space-y-2">
@@ -44,6 +41,15 @@ function WorkoutPastAttempts({ workout }: WorkoutPastAttemptsProps) {
       </div>
     </div>
   );
+}
+
+function WorkoutPastAttempts({ workout }: WorkoutPastAttemptsProps) {
+  if (!workout.attempts || workout.attempts.length === 0) {
+    return null;
+  }
+
+  return pastAttemptsTable(workout)
+
 }
 
 export default WorkoutPastAttempts;
