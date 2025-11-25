@@ -1,1745 +1,2365 @@
 {
-  "protocol": "Protocol for Lap Grooming Ritual: Building Trust Through Touch",
-  "description": "We start by laying the puppy gently across the lap, stroking the belly — a reflex that dogs recognise from their mothers, who do this after feeding to stimulate digestion. This familiar, soothing gesture helps the dog relax and open up emotionally. Once the dog is calm, we can check the paws, ears, or even trim nails — all without fear or tension. The key is to make it a bonding ritual, not a technical task. It's something between you and your dog — a private space of care and communication.",
+  "protocol": "Protocol for Lap Grooming Ritual: Building Trust for Handling and Nail Care",
+  "description": "This protocol teaches dogs to relax on their back in the handler's lap, accepting gentle handling of paws, ears, and mouth, gradually introducing grooming tools. The goal is to create a bonding ritual rooted in trust and calm, reminiscent of maternal care.",
   "task_sets": [
     {
       "set_number": 1,
-      "title": "Introduction to Lap Position",
-      "goal": "Establish comfort with being held in your lap",
       "tasks": [
         {
-          "task": "Sit on the floor with your legs extended or crossed, invite dog to approach",
-          "duration": 5,
-          "note": "Start in a relaxed, non-threatening position. Let the dog come to you.",
-          "tags": ["stand", "beside"]
+          "task": "Gently guide dog onto your lap",
+          "tags": [
+            "lap",
+            "position"
+          ]
         },
         {
-          "task": "Gently guide dog to sit beside you, reward with calm praise",
-          "duration": 5,
-          "tags": ["sit", "beside"]
-        },
-        {
-          "task": "Rest your hand on dog's side while sitting beside you for 5 seconds",
-          "duration": 5,
-          "tags": ["touch", "side"]
-        },
-        {
-          "task": "Rest your hand on dog's side for 10 seconds",
-          "duration": 10,
-          "tags": ["touch", "side"]
-        },
-        {
-          "task": "Gently stroke dog's side 3 times while beside you",
-          "quantity": 3,
-          "tags": ["stroke", "side"]
-        },
-        {
-          "task": "Rest your hand on dog's side for 5 seconds",
-          "duration": 5,
-          "tags": ["touch", "side"]
-        },
-        {
-          "task": "Gently encourage dog to lean against your leg, hold for 3 seconds",
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "note": "Some dogs may resist leaning. If so, just reward any weight shift toward you.",
-          "tags": ["lean"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog leaning against you for 5 seconds",
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["lean"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Stroke dog's side 5 times while leaning",
-          "quantity": 5,
-          "tags": ["stroke", "side"]
+          "task": "Lie in lap for 3 seconds",
+          "duration": 3
         },
         {
-          "task": "Dog leaning against you for 10 seconds",
-          "duration": 10,
-          "tags": ["lean"]
-        },
-        {
-          "task": "Gently place one arm around dog while leaning, hold 3 seconds",
+          "task": "Rest hand on chest for 3 seconds",
           "duration": 3,
-          "note": "This is a bigger commitment. If dog tenses, return to simple side contact.",
-          "tags": ["hold", "body"]
+          "tags": [
+            "chest",
+            "hold"
+          ]
         },
         {
-          "task": "Stroke dog's chest with free hand 3 times",
-          "quantity": 3,
-          "tags": ["stroke", "chest"]
-        },
-        {
-          "task": "Hold dog gently with arm around for 5 seconds",
-          "duration": 5,
-          "tags": ["hold", "body"]
-        },
-        {
-          "task": "Hold dog gently for 10 seconds, stroke chest",
-          "duration": 10,
-          "tags": ["hold", "stroke", "chest"]
-        },
-        {
-          "task": "Rest your hand on dog's side for 5 seconds",
-          "duration": 5,
-          "tags": ["touch", "side"],
-          "note": "Return to easier task to reset."
-        },
-        {
-          "task": "Gently guide dog's front half onto your lap, hold 2 seconds",
-          "duration": 2,
-          "note": "This is a significant step. Some dogs need many sessions here. If dog resists, return to leaning exercises.",
-          "tags": ["lap"]
-        },
-        {
-          "task": "Dog's front half on lap for 3 seconds",
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "tags": ["lap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog's front half on lap for 5 seconds with gentle chest strokes",
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Stroke belly once",
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
+        },
+        {
+          "task": "Rest hand on belly for 5 seconds",
           "duration": 5,
-          "tags": ["lap", "stroke", "chest"]
+          "tags": [
+            "belly",
+            "hold"
+          ]
         },
         {
-          "task": "Rest your hand on dog's side for 5 seconds",
+          "task": "Lie in lap for 3 seconds",
+          "duration": 3
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["touch", "side"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog's front half on lap for 10 seconds",
-          "duration": 10,
-          "tags": ["lap"]
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
         },
         {
-          "task": "Gently stroke dog's chest and belly area 5 times",
-          "quantity": 5,
-          "tags": ["stroke", "belly"]
+          "task": "Gently guide dog onto your lap",
+          "note": "If dog has moved, reposition. If still in place, reward and continue.",
+          "tags": [
+            "lap",
+            "position"
+          ]
         },
         {
-          "task": "Dog resting on lap for 5 seconds",
+          "task": "Rest hand on chest for 5 seconds",
           "duration": 5,
-          "tags": ["lap"]
+          "tags": [
+            "chest",
+            "hold"
+          ]
         },
         {
-          "task": "Dog resting on lap for 10 seconds",
-          "duration": 10,
-          "tags": ["lap"]
-        },
-        {
-          "task": "Stroke dog's side for 5 seconds",
-          "duration": 5,
-          "tags": ["stroke", "side"]
-        },
-        {
-          "task": "Dog resting on lap for 3 seconds",
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "tags": ["lap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
+        },
+        {
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 3 seconds",
+          "duration": 3
         }
       ]
     },
     {
       "set_number": 2,
-      "title": "Building Lap Comfort",
-      "goal": "Increase duration and comfort in lap position",
       "tasks": [
         {
-          "task": "Guide dog onto your lap, hold for 5 seconds",
+          "task": "Gently guide dog onto your lap",
+          "tags": [
+            "lap",
+            "position"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["lap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in lap for 10 seconds with gentle stroking",
-          "duration": 10,
-          "tags": ["lap", "stroke"]
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
         },
         {
-          "task": "Dog in lap for 5 seconds",
+          "task": "Touch left front paw briefly",
+          "note": "Very light touch, immediately return to belly stroking if dog tenses.",
+          "tags": [
+            "paw",
+            "left",
+            "front",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["lap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in lap for 15 seconds",
-          "duration": 15,
-          "note": "If dog becomes restless, return to shorter durations.",
-          "tags": ["lap"]
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
         },
         {
-          "task": "Gently stroke from chest toward belly 5 times",
-          "quantity": 5,
-          "tags": ["stroke", "belly"]
+          "task": "Touch right front paw briefly",
+          "tags": [
+            "paw",
+            "right",
+            "front",
+            "touch"
+          ]
         },
         {
-          "task": "Dog in lap for 10 seconds",
-          "duration": 10,
-          "tags": ["lap"]
-        },
-        {
-          "task": "Dog in lap for 20 seconds",
-          "duration": 20,
-          "tags": ["lap"]
-        },
-        {
-          "task": "Stroke dog's belly gently 3 times",
-          "quantity": 3,
-          "note": "Belly exposure is vulnerable. Watch for tension signs.",
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Dog in lap for 10 seconds",
-          "duration": 10,
-          "tags": ["lap"]
-        },
-        {
-          "task": "Dog in lap for 5 seconds",
-          "duration": 5,
-          "tags": ["lap"]
-        },
-        {
-          "task": "Encourage dog to shift to a more reclined position, hold 3 seconds",
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "note": "We're working toward the cradled position. Go very slowly here.",
-          "tags": ["recline"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in reclined position for 5 seconds",
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Touch left ear flap briefly",
+          "tags": [
+            "ear",
+            "left",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["recline"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Stroke belly gently while reclined for 5 seconds",
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
+        },
+        {
+          "task": "Touch right ear flap briefly",
+          "tags": [
+            "ear",
+            "right",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly", "recline"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in lap for 10 seconds",
-          "duration": 10,
-          "tags": ["lap"]
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
         },
         {
-          "task": "Dog in reclined position for 10 seconds",
-          "duration": 10,
-          "tags": ["recline"]
+          "task": "Touch left front paw briefly",
+          "tags": [
+            "paw",
+            "left",
+            "front",
+            "touch"
+          ]
         },
         {
-          "task": "Stroke from chest to belly in long, slow motions for 10 seconds",
-          "duration": 10,
-          "note": "Use the slow, rhythmic strokes that mimic maternal care.",
-          "tags": ["stroke", "belly"]
+          "task": "Touch right front paw briefly",
+          "tags": [
+            "paw",
+            "right",
+            "front",
+            "touch"
+          ]
         },
         {
-          "task": "Dog in reclined position for 15 seconds",
-          "duration": 15,
-          "tags": ["recline"]
-        },
-        {
-          "task": "Dog in lap for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["lap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in reclined position for 10 seconds with belly strokes",
-          "duration": 10,
-          "tags": ["recline", "stroke", "belly"]
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
         },
         {
-          "task": "Dog in lap for 5 seconds",
-          "duration": 5,
-          "tags": ["lap"]
-        },
-        {
-          "task": "Dog in lap for 3 seconds",
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "tags": ["lap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
         }
       ]
     },
     {
       "set_number": 3,
-      "title": "Introducing the Cradled Position",
-      "goal": "Transition to full belly-up cradled position",
       "tasks": [
         {
-          "task": "Dog in lap for 10 seconds",
-          "duration": 10,
-          "tags": ["lap"]
+          "task": "Gently guide dog onto your lap",
+          "tags": [
+            "lap",
+            "position"
+          ]
         },
         {
-          "task": "Dog in reclined position for 10 seconds",
-          "duration": 10,
-          "tags": ["recline"]
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Gently support dog's back and encourage slight roll, hold 2 seconds",
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Hold left front paw for 2 seconds",
           "duration": 2,
-          "note": "This is a significant trust moment. Many dogs will resist. If so, spend more time on reclined position.",
-          "tags": ["cradle"]
+          "tags": [
+            "paw",
+            "left",
+            "front",
+            "hold"
+          ]
         },
         {
-          "task": "Dog in reclined position for 5 seconds",
-          "duration": 5,
-          "tags": ["recline"]
-        },
-        {
-          "task": "Encourage slight roll with back support, hold 3 seconds",
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "tags": ["cradle"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Gentle belly strokes while slightly rolled for 5 seconds",
+          "task": "Touch left back paw briefly",
+          "note": "Back paws can be more sensitive. Go slowly.",
+          "tags": [
+            "paw",
+            "left",
+            "back",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in lap for 5 seconds",
-          "duration": 5,
-          "tags": ["lap"]
-        },
-        {
-          "task": "Dog in reclined position for 10 seconds",
-          "duration": 10,
-          "tags": ["recline"]
-        },
-        {
-          "task": "Gently guide dog into cradled position (belly up in your arms), hold 2 seconds",
+          "task": "Hold right front paw for 2 seconds",
           "duration": 2,
-          "note": "The full cradled position. This may take many sessions. Always support the back.",
-          "tags": ["cradle"]
+          "tags": [
+            "paw",
+            "right",
+            "front",
+            "hold"
+          ]
         },
         {
-          "task": "Dog in reclined position for 5 seconds",
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Touch right back paw briefly",
+          "tags": [
+            "paw",
+            "right",
+            "back",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["recline"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 3 seconds",
+          "task": "Hold left ear flap for 2 seconds",
+          "duration": 2,
+          "tags": [
+            "ear",
+            "left",
+            "hold"
+          ]
+        },
+        {
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
+        },
+        {
+          "task": "Hold right ear flap for 2 seconds",
+          "duration": 2,
+          "tags": [
+            "ear",
+            "right",
+            "hold"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
+        },
+        {
+          "task": "Touch muzzle briefly",
+          "tags": [
+            "muzzle",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "tags": ["cradle"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 5 seconds with gentle belly strokes",
-          "duration": 5,
-          "tags": ["cradle", "stroke", "belly"]
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
         },
         {
-          "task": "Dog in lap for 10 seconds",
-          "duration": 10,
-          "tags": ["lap"]
-        },
-        {
-          "task": "Dog in cradled position for 5 seconds",
-          "duration": 5,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Long, slow belly strokes in cradled position for 10 seconds",
-          "duration": 10,
-          "note": "These are the maternal strokes that help dogs relax deeply.",
-          "tags": ["stroke", "belly", "cradle"]
-        },
-        {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Dog in lap for 5 seconds",
-          "duration": 5,
-          "tags": ["lap"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Dog in cradled position for 5 seconds",
-          "duration": 5,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Dog in lap for 3 seconds",
+          "task": "Hold left front paw for 3 seconds",
           "duration": 3,
-          "tags": ["lap"]
+          "tags": [
+            "paw",
+            "left",
+            "front",
+            "hold"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
         }
       ]
     },
     {
       "set_number": 4,
-      "title": "Extended Cradling and Touch Variation",
-      "goal": "Build duration in cradled position and introduce varied touches",
       "tasks": [
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Gently guide dog onto your lap",
+          "tags": [
+            "lap",
+            "position"
+          ]
         },
         {
-          "task": "Dog in cradled position for 15 seconds with belly strokes",
-          "duration": 15,
-          "tags": ["cradle", "stroke", "belly"]
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
         },
         {
-          "task": "Dog in cradled position for 20 seconds",
-          "duration": 20,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Stroke from belly up toward chest 5 times",
-          "quantity": 5,
-          "tags": ["stroke", "chest"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Dog in cradled position for 25 seconds",
-          "duration": 25,
-          "note": "Building toward longer calm periods.",
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Gently rest hand on dog's chest for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["touch", "chest"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
+          "task": "Hold left back paw for 2 seconds",
+          "duration": 2,
+          "tags": [
+            "paw",
+            "left",
+            "back",
+            "hold"
+          ]
         },
         {
-          "task": "Stroke dog's side while cradled for 10 seconds",
-          "duration": 10,
-          "tags": ["stroke", "side"]
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 30 seconds",
-          "duration": 30,
-          "tags": ["cradle"]
+          "task": "Hold right back paw for 2 seconds",
+          "duration": 2,
+          "tags": [
+            "paw",
+            "right",
+            "back",
+            "hold"
+          ]
         },
         {
-          "task": "Gently touch dog's shoulder area for 3 seconds",
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Show clippers for 2 seconds",
+          "duration": 2,
+          "note": "Just let the dog see the clippers. No movement toward dog.",
+          "tags": [
+            "clippers",
+            "show"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
+        },
+        {
+          "task": "Hold left front paw for 3 seconds",
           "duration": 3,
-          "note": "Introducing touch to new areas while maintaining cradled position.",
-          "tags": ["touch", "shoulder"]
+          "tags": [
+            "paw",
+            "left",
+            "front",
+            "hold"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Hold right front paw for 3 seconds",
+          "duration": 3,
+          "tags": [
+            "paw",
+            "right",
+            "front",
+            "hold"
+          ]
         },
         {
-          "task": "Touch shoulder area for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["touch", "shoulder"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 20 seconds",
-          "duration": 20,
-          "tags": ["cradle"]
+          "task": "Show clippers for 3 seconds",
+          "duration": 3,
+          "tags": [
+            "clippers",
+            "show"
+          ]
         },
         {
-          "task": "Gently stroke from shoulder down toward leg 3 times",
-          "quantity": 3,
-          "tags": ["stroke", "front-leg"]
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
         },
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
+          "task": "Touch muzzle briefly",
+          "tags": [
+            "muzzle",
+            "touch"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Hold muzzle gently for 2 seconds",
+          "duration": 2,
+          "tags": [
+            "muzzle",
+            "hold"
+          ]
         },
         {
-          "task": "Dog in lap for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["lap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Hold left ear flap for 3 seconds",
+          "duration": 3,
+          "tags": [
+            "ear",
+            "left",
+            "hold"
+          ]
+        },
+        {
+          "task": "Stroke belly for 3 seconds",
+          "duration": 3,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
         }
       ]
     },
     {
       "set_number": 5,
-      "title": "Introduction to Leg Handling",
-      "goal": "Begin gentle handling of front legs and paws",
       "tasks": [
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
+          "task": "Gently guide dog onto your lap",
+          "tags": [
+            "lap",
+            "position"
+          ]
         },
         {
-          "task": "Belly strokes for 10 seconds",
-          "duration": 10,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Dog in cradled position for 20 seconds",
-          "duration": 20,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Gently touch front leg (upper part) for 2 seconds",
-          "duration": 2,
-          "note": "First leg contact. If dog pulls away, return to belly strokes.",
-          "tags": ["touch", "front-leg"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Touch front leg for 3 seconds",
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Hold left front paw for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "paw",
+            "left",
+            "front",
+            "hold"
+          ]
+        },
+        {
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "tags": ["touch", "front-leg"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Touch front leg for 5 seconds",
+          "task": "Show clippers for 5 seconds",
           "duration": 5,
-          "tags": ["touch", "front-leg"]
+          "tags": [
+            "clippers",
+            "show"
+          ]
         },
         {
-          "task": "Gently stroke down front leg once",
-          "quantity": 1,
-          "note": "One smooth motion from shoulder to above the paw.",
-          "tags": ["stroke", "front-leg"]
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Touch between toes on left front paw",
+          "note": "Very gentle touch. This area is sensitive.",
+          "tags": [
+            "paw",
+            "left",
+            "front",
+            "toes",
+            "touch"
+          ]
         },
         {
-          "task": "Stroke down front leg 3 times",
-          "quantity": 3,
-          "tags": ["stroke", "front-leg"]
-        },
-        {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Hold front leg gently for 2 seconds",
-          "duration": 2,
-          "note": "Very gentle hold, not restraining. Dog should be able to pull away if needed.",
-          "tags": ["hold", "front-leg"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Hold front leg gently for 3 seconds",
+          "task": "Hold right front paw for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "paw",
+            "right",
+            "front",
+            "hold"
+          ]
+        },
+        {
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
+        },
+        {
+          "task": "Touch between toes on right front paw",
+          "tags": [
+            "paw",
+            "right",
+            "front",
+            "toes",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Touch left front paw with clippers",
+          "note": "Just a light touch of the closed clippers to the paw.",
+          "tags": [
+            "clippers",
+            "paw",
+            "left",
+            "front",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
+        },
+        {
+          "task": "Lift left lip briefly to expose teeth",
+          "tags": [
+            "lip",
+            "left",
+            "lift"
+          ]
+        },
+        {
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "tags": ["hold", "front-leg"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Hold right ear flap for 3 seconds",
+          "duration": 3,
+          "tags": [
+            "ear",
+            "right",
+            "hold"
+          ]
         },
         {
-          "task": "Hold front leg gently for 5 seconds",
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Touch right front paw with clippers",
+          "tags": [
+            "clippers",
+            "paw",
+            "right",
+            "front",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["hold", "front-leg"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 5 seconds",
-          "duration": 5,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Dog in lap for 5 seconds",
-          "duration": 5,
-          "tags": ["lap"]
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
         }
       ]
     },
     {
       "set_number": 6,
-      "title": "Paw Introduction",
-      "goal": "Begin gentle paw handling",
       "tasks": [
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
+          "task": "Gently guide dog onto your lap",
+          "tags": [
+            "lap",
+            "position"
+          ]
         },
         {
-          "task": "Hold front leg gently for 5 seconds",
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["hold", "front-leg"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Stroke down leg to just above paw 3 times",
-          "quantity": 3,
-          "tags": ["stroke", "front-leg"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Gently touch paw (top only) for 1 second",
-          "duration": 1,
-          "note": "First paw contact. Many dogs are sensitive here. If dog reacts, return to leg strokes.",
-          "tags": ["touch", "front-paw"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
-          "duration": 5,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Touch paw (top) for 2 seconds",
-          "duration": 2,
-          "tags": ["touch", "front-paw"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Touch paw (top) for 3 seconds",
+          "task": "Hold left back paw for 3 seconds",
           "duration": 3,
-          "tags": ["touch", "front-paw"]
+          "tags": [
+            "paw",
+            "left",
+            "back",
+            "hold"
+          ]
         },
         {
-          "task": "Belly strokes for 5 seconds",
-          "duration": 5,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Touch paw (top) for 5 seconds",
-          "duration": 5,
-          "tags": ["touch", "front-paw"]
-        },
-        {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Gently cup paw in your hand for 2 seconds",
-          "duration": 2,
-          "note": "Not squeezing, just holding. Let the paw rest in your palm.",
-          "tags": ["hold", "front-paw"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Cup paw in hand for 3 seconds",
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "tags": ["hold", "front-paw"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Touch left back paw with clippers",
+          "tags": [
+            "clippers",
+            "paw",
+            "left",
+            "back",
+            "touch"
+          ]
+        },
+        {
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Lift right lip briefly to expose teeth",
+          "tags": [
+            "lip",
+            "right",
+            "lift"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Cup paw in hand for 5 seconds",
+          "task": "Hold right back paw for 3 seconds",
+          "duration": 3,
+          "tags": [
+            "paw",
+            "right",
+            "back",
+            "hold"
+          ]
+        },
+        {
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
+        },
+        {
+          "task": "Touch right back paw with clippers",
+          "tags": [
+            "clippers",
+            "paw",
+            "right",
+            "back",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["hold", "front-paw"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Show brush for 3 seconds",
+          "duration": 3,
+          "tags": [
+            "brush",
+            "show"
+          ]
         },
         {
-          "task": "Dog in lap for 5 seconds",
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
+        },
+        {
+          "task": "Gently fold left ear back",
+          "tags": [
+            "ear",
+            "left",
+            "fold"
+          ]
+        },
+        {
+          "task": "Stroke belly for 3 seconds",
+          "duration": 3,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Look inside left ear",
+          "tags": [
+            "ear",
+            "left",
+            "look"
+          ]
+        },
+        {
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Touch belly with brush",
+          "tags": [
+            "brush",
+            "belly",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["lap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
         }
       ]
     },
     {
       "set_number": 7,
-      "title": "Paw Pad and Toe Introduction",
-      "goal": "Gentle handling of paw pads and individual toes",
       "tasks": [
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
+          "task": "Gently guide dog onto your lap",
+          "tags": [
+            "lap",
+            "position"
+          ]
         },
         {
-          "task": "Cup paw in hand for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["hold", "front-paw"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
         },
         {
-          "task": "Gently touch paw pad with thumb for 1 second",
-          "duration": 1,
-          "note": "Paw pads can be very sensitive. Light touch only.",
-          "tags": ["touch", "paw-pad"]
+          "task": "Click clippers once in the air",
+          "note": "Keep clippers away from dog. Just let them hear the sound.",
+          "tags": [
+            "clippers",
+            "click",
+            "sound"
+          ]
         },
         {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Touch paw pad for 2 seconds",
-          "duration": 2,
-          "tags": ["touch", "paw-pad"]
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Hold left front paw for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "paw",
+            "left",
+            "front",
+            "hold"
+          ]
         },
         {
-          "task": "Touch paw pad for 3 seconds",
+          "task": "Touch toe on left front paw with clippers",
+          "tags": [
+            "clippers",
+            "paw",
+            "left",
+            "front",
+            "toes",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Gently fold right ear back",
+          "tags": [
+            "ear",
+            "right",
+            "fold"
+          ]
+        },
+        {
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Look inside right ear",
+          "tags": [
+            "ear",
+            "right",
+            "look"
+          ]
+        },
+        {
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "tags": ["touch", "paw-pad"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Touch paw pad for 5 seconds",
+          "task": "Hold right front paw for 5 seconds",
           "duration": 5,
-          "tags": ["touch", "paw-pad"]
+          "tags": [
+            "paw",
+            "right",
+            "front",
+            "hold"
+          ]
         },
         {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Touch toe on right front paw with clippers",
+          "tags": [
+            "clippers",
+            "paw",
+            "right",
+            "front",
+            "toes",
+            "touch"
+          ]
+        },
+        {
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
+        },
+        {
+          "task": "Gentle brush stroke on belly",
+          "tags": [
+            "brush",
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Gently touch one toe for 1 second",
-          "duration": 1,
-          "note": "Individual toe handling is important for nail care. Go very slowly.",
-          "tags": ["touch", "toe"]
+          "task": "Click clippers once in the air",
+          "tags": [
+            "clippers",
+            "click",
+            "sound"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
         },
         {
-          "task": "Touch one toe for 2 seconds",
+          "task": "Lift left lip and hold for 2 seconds",
           "duration": 2,
-          "tags": ["touch", "toe"]
+          "tags": [
+            "lip",
+            "left",
+            "lift",
+            "hold"
+          ]
         },
         {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Touch one toe for 3 seconds",
-          "duration": 3,
-          "tags": ["touch", "toe"]
-        },
-        {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Gently separate toes for 1 second",
-          "duration": 1,
-          "note": "Very gentle spreading. This is needed for checking between toes.",
-          "tags": ["spread", "toe"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Separate toes gently for 2 seconds",
-          "duration": 2,
-          "tags": ["spread", "toe"]
-        },
-        {
-          "task": "Dog in lap for 5 seconds",
-          "duration": 5,
-          "tags": ["lap"]
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
         }
       ]
     },
     {
       "set_number": 8,
-      "title": "Nail Handling Introduction",
-      "goal": "Prepare for nail care by handling nails without tools",
       "tasks": [
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
+          "task": "Gently guide dog onto your lap",
+          "tags": [
+            "lap",
+            "position"
+          ]
         },
         {
-          "task": "Cup paw and touch paw pad for 5 seconds",
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["hold", "front-paw", "paw-pad"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Touch base of tail",
+          "tags": [
+            "tail",
+            "touch"
+          ]
         },
         {
-          "task": "Gently hold one toe and touch nail for 1 second",
-          "duration": 1,
-          "note": "First nail contact. Be very gentle and calm.",
-          "tags": ["touch", "nail"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
-          "duration": 5,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Hold toe and touch nail for 2 seconds",
-          "duration": 2,
-          "tags": ["touch", "nail"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Hold toe and touch nail for 3 seconds",
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "tags": ["touch", "nail"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Hold left back paw for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "paw",
+            "left",
+            "back",
+            "hold"
+          ]
         },
         {
-          "task": "Hold toe and touch nail for 5 seconds",
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Touch toe on left back paw with clippers",
+          "tags": [
+            "clippers",
+            "paw",
+            "left",
+            "back",
+            "toes",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["touch", "nail"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Gently apply light pressure to nail (as if clipping) for 1 second",
-          "duration": 1,
-          "note": "Simulating the feeling of nail clipping without tools.",
-          "tags": ["pressure", "nail"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Apply light pressure to nail for 2 seconds",
+          "task": "Lift right lip and hold for 2 seconds",
           "duration": 2,
-          "tags": ["pressure", "nail"]
+          "tags": [
+            "lip",
+            "right",
+            "lift",
+            "hold"
+          ]
         },
         {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Hold right back paw for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "paw",
+            "right",
+            "back",
+            "hold"
+          ]
         },
         {
-          "task": "Touch 2 different nails, 1 second each",
-          "duration": 2,
-          "tags": ["touch", "nail"]
+          "task": "Touch toe on right back paw with clippers",
+          "tags": [
+            "clippers",
+            "paw",
+            "right",
+            "back",
+            "toes",
+            "touch"
+          ]
         },
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Touch 3 different nails, 1 second each",
-          "duration": 3,
-          "tags": ["touch", "nail"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Dog in lap for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["lap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Click clippers twice in the air",
+          "quantity": 2,
+          "tags": [
+            "clippers",
+            "click",
+            "sound"
+          ]
+        },
+        {
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
+        },
+        {
+          "task": "Gently squeeze left front paw pad",
+          "tags": [
+            "paw",
+            "left",
+            "front",
+            "squeeze"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Touch chest with brush",
+          "tags": [
+            "brush",
+            "chest",
+            "touch"
+          ]
+        },
+        {
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Gently squeeze right front paw pad",
+          "tags": [
+            "paw",
+            "right",
+            "front",
+            "squeeze"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
         }
       ]
     },
     {
       "set_number": 9,
-      "title": "Ear Introduction",
-      "goal": "Begin gentle ear handling",
       "tasks": [
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
+          "task": "Gently guide dog onto your lap",
+          "tags": [
+            "lap",
+            "position"
+          ]
         },
         {
-          "task": "Belly strokes for 10 seconds",
-          "duration": 10,
-          "tags": ["stroke", "belly"]
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Lie in lap for 20 seconds",
+          "duration": 20
         },
         {
-          "task": "Gently stroke the side of dog's head for 3 seconds",
+          "task": "Hold left front paw and show clippers simultaneously for 3 seconds",
           "duration": 3,
-          "note": "Working toward the ears gradually.",
-          "tags": ["stroke", "head"]
+          "tags": [
+            "clippers",
+            "paw",
+            "left",
+            "front",
+            "hold",
+            "show"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Stroke side of head for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "head"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Belly strokes for 5 seconds",
-          "duration": 5,
-          "tags": ["stroke", "belly"]
+          "task": "Run finger along left ear edge",
+          "tags": [
+            "ear",
+            "left",
+            "touch"
+          ]
         },
         {
-          "task": "Gently touch base of ear for 2 seconds",
-          "duration": 2,
-          "note": "First ear contact. Many dogs enjoy ear base massage once comfortable.",
-          "tags": ["touch", "ear"]
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Touch base of ear for 3 seconds",
+          "task": "Hold right front paw and show clippers simultaneously for 3 seconds",
           "duration": 3,
-          "tags": ["touch", "ear"]
+          "tags": [
+            "clippers",
+            "paw",
+            "right",
+            "front",
+            "hold",
+            "show"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Gently massage ear base for 5 seconds",
-          "duration": 5,
-          "tags": ["massage", "ear"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
-          "duration": 5,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Gently touch ear flap for 2 seconds",
-          "duration": 2,
-          "note": "Moving from base to the ear itself.",
-          "tags": ["touch", "ear-flap"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Touch ear flap for 3 seconds",
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "tags": ["touch", "ear-flap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Click clippers near left front paw",
+          "note": "Clippers should be visible but not touching the paw.",
+          "tags": [
+            "clippers",
+            "paw",
+            "left",
+            "front",
+            "click",
+            "sound"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Hold ear flap gently for 5 seconds",
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
+        },
+        {
+          "task": "Touch inside of left ear flap",
+          "tags": [
+            "ear",
+            "left",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 3 seconds",
+          "duration": 3,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Click clippers near right front paw",
+          "tags": [
+            "clippers",
+            "paw",
+            "right",
+            "front",
+            "click",
+            "sound"
+          ]
+        },
+        {
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Run finger along right ear edge",
+          "tags": [
+            "ear",
+            "right",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["hold", "ear-flap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Gently squeeze left back paw pad",
+          "tags": [
+            "paw",
+            "left",
+            "back",
+            "squeeze"
+          ]
         },
         {
-          "task": "Dog in lap for 5 seconds",
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Gentle brush stroke on chest",
+          "tags": [
+            "brush",
+            "chest",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["lap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
         }
       ]
     },
     {
       "set_number": 10,
-      "title": "Ear Examination Practice",
-      "goal": "Practice gentle ear examination movements",
       "tasks": [
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
+          "task": "Gently guide dog onto your lap",
+          "tags": [
+            "lap",
+            "position"
+          ]
         },
         {
-          "task": "Massage ear base for 5 seconds",
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["massage", "ear"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Place clippers around nail on left front paw - no clip",
+          "note": "Position clippers as if about to trim, but do not apply pressure or clip.",
+          "tags": [
+            "clippers",
+            "paw",
+            "left",
+            "front",
+            "place"
+          ]
         },
         {
-          "task": "Hold ear flap and gently lift for 2 seconds",
-          "duration": 2,
-          "note": "Begin simulating ear checks. Very gentle lift.",
-          "tags": ["lift", "ear-flap"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Lift ear flap gently for 3 seconds",
+          "task": "Hold tail gently for 3 seconds",
           "duration": 3,
-          "tags": ["lift", "ear-flap"]
+          "tags": [
+            "tail",
+            "hold"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
         },
         {
-          "task": "Lift ear flap and look inside for 3 seconds",
+          "task": "Place clippers around nail on right front paw - no clip",
+          "tags": [
+            "clippers",
+            "paw",
+            "right",
+            "front",
+            "place"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Touch left side of gums",
+          "tags": [
+            "gums",
+            "left",
+            "touch"
+          ]
+        },
+        {
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
+        },
+        {
+          "task": "Gently squeeze right back paw pad",
+          "tags": [
+            "paw",
+            "right",
+            "back",
+            "squeeze"
+          ]
+        },
+        {
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "note": "Practicing the visual check you would do for ear health.",
-          "tags": ["lift", "ear-flap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Click clippers near left back paw",
+          "tags": [
+            "clippers",
+            "paw",
+            "left",
+            "back",
+            "click",
+            "sound"
+          ]
+        },
+        {
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Touch right side of gums",
+          "tags": [
+            "gums",
+            "right",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Lift ear and look inside for 5 seconds",
+          "task": "Click clippers near right back paw",
+          "tags": [
+            "clippers",
+            "paw",
+            "right",
+            "back",
+            "click",
+            "sound"
+          ]
+        },
+        {
+          "task": "Lie in lap for 20 seconds",
+          "duration": 20
+        },
+        {
+          "task": "Touch inside of right ear flap",
+          "tags": [
+            "ear",
+            "right",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["lift", "ear-flap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Gently touch inside edge of ear (outer part only) for 2 seconds",
-          "duration": 2,
-          "note": "Never insert anything into ear canal. Just gentle outer edge touch.",
-          "tags": ["touch", "ear-inner"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Touch inside edge of ear for 3 seconds",
-          "duration": 3,
-          "tags": ["touch", "ear-inner"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
-          "duration": 5,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Examine one ear for 5 seconds, then the other for 5 seconds",
-          "duration": 10,
-          "tags": ["lift", "ear-flap"]
-        },
-        {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Dog in lap for 5 seconds",
-          "duration": 5,
-          "tags": ["lap"]
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
         }
       ]
     },
     {
       "set_number": 11,
-      "title": "Back Legs and Hind Paw Introduction",
-      "goal": "Extend paw handling to back legs",
       "tasks": [
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
+          "task": "Gently guide dog onto your lap",
+          "tags": [
+            "lap",
+            "position"
+          ]
         },
         {
-          "task": "Belly strokes for 10 seconds",
-          "duration": 10,
-          "tags": ["stroke", "belly"]
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Lie in lap for 20 seconds",
+          "duration": 20
         },
         {
-          "task": "Gently touch upper hind leg for 2 seconds",
-          "duration": 2,
-          "note": "Back legs can be more sensitive. Proceed carefully.",
-          "tags": ["touch", "hind-leg"]
+          "task": "Place clippers around nail on left back paw - no clip",
+          "tags": [
+            "clippers",
+            "paw",
+            "left",
+            "back",
+            "place"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Touch hind leg for 3 seconds",
+          "task": "Touch each toe individually on left front paw",
+          "tags": [
+            "paw",
+            "left",
+            "front",
+            "toes",
+            "touch"
+          ]
+        },
+        {
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Place clippers around nail on right back paw - no clip",
+          "tags": [
+            "clippers",
+            "paw",
+            "right",
+            "back",
+            "place"
+          ]
+        },
+        {
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "tags": ["touch", "hind-leg"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Lift and examine left front paw for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "paw",
+            "left",
+            "front",
+            "lift",
+            "examine"
+          ]
         },
         {
-          "task": "Touch hind leg for 5 seconds",
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
+        },
+        {
+          "task": "Place clippers around nail and click on left front paw - no actual trim",
+          "note": "This combines positioning and sound. Watch for tension.",
+          "tags": [
+            "clippers",
+            "paw",
+            "left",
+            "front",
+            "place",
+            "click"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["touch", "hind-leg"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Touch each toe individually on right front paw",
+          "tags": [
+            "paw",
+            "right",
+            "front",
+            "toes",
+            "touch"
+          ]
         },
         {
-          "task": "Stroke down hind leg once",
-          "quantity": 1,
-          "tags": ["stroke", "hind-leg"]
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Lift and examine right front paw for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "paw",
+            "right",
+            "front",
+            "lift",
+            "examine"
+          ]
         },
         {
-          "task": "Stroke down hind leg 3 times",
-          "quantity": 3,
-          "tags": ["stroke", "hind-leg"]
-        },
-        {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Gently touch hind paw for 2 seconds",
-          "duration": 2,
-          "note": "Hind paws often need more work than front paws.",
-          "tags": ["touch", "hind-paw"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Touch hind paw for 3 seconds",
-          "duration": 3,
-          "tags": ["touch", "hind-paw"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Dog in lap for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["lap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Place clippers around nail and click on right front paw - no actual trim",
+          "tags": [
+            "clippers",
+            "paw",
+            "right",
+            "front",
+            "place",
+            "click"
+          ]
+        },
+        {
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
+        },
+        {
+          "task": "Run hand along tail",
+          "tags": [
+            "tail",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
         }
       ]
     },
     {
       "set_number": 12,
-      "title": "Hind Paw and Nail Handling",
-      "goal": "Complete paw handling for all four feet",
       "tasks": [
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
+          "task": "Gently guide dog onto your lap",
+          "tags": [
+            "lap",
+            "position"
+          ]
         },
         {
-          "task": "Touch hind paw for 5 seconds",
+          "task": "Lie in lap for 20 seconds",
+          "duration": 20
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["touch", "hind-paw"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Lift and examine left back paw for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "paw",
+            "left",
+            "back",
+            "lift",
+            "examine"
+          ]
         },
         {
-          "task": "Cup hind paw in hand for 3 seconds",
+          "task": "Stroke belly for 3 seconds",
           "duration": 3,
-          "tags": ["hold", "hind-paw"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Belly strokes for 5 seconds",
-          "duration": 5,
-          "tags": ["stroke", "belly"]
+          "task": "Place clippers around nail and click on left back paw - no actual trim",
+          "tags": [
+            "clippers",
+            "paw",
+            "left",
+            "back",
+            "place",
+            "click"
+          ]
         },
         {
-          "task": "Cup hind paw for 5 seconds",
-          "duration": 5,
-          "tags": ["hold", "hind-paw"]
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Touch hind paw pad for 2 seconds",
-          "duration": 2,
-          "tags": ["touch", "hind-paw-pad"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Touch hind paw pad for 5 seconds",
-          "duration": 5,
-          "tags": ["touch", "hind-paw-pad"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
-          "duration": 5,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Touch one hind toe for 2 seconds",
-          "duration": 2,
-          "tags": ["touch", "hind-toe"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Touch hind toe for 3 seconds",
+          "task": "Lift left lip and hold for 3 seconds",
           "duration": 3,
-          "tags": ["touch", "hind-toe"]
+          "tags": [
+            "lip",
+            "left",
+            "lift",
+            "hold"
+          ]
         },
         {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Touch hind nail for 2 seconds",
-          "duration": 2,
-          "tags": ["touch", "hind-nail"]
+          "task": "Lift and examine right back paw for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "paw",
+            "right",
+            "back",
+            "lift",
+            "examine"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
         },
         {
-          "task": "Touch hind nail for 3 seconds",
+          "task": "Place clippers around nail and click on right back paw - no actual trim",
+          "tags": [
+            "clippers",
+            "paw",
+            "right",
+            "back",
+            "place",
+            "click"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lift right lip and hold for 3 seconds",
           "duration": 3,
-          "tags": ["touch", "hind-nail"]
+          "tags": [
+            "lip",
+            "right",
+            "lift",
+            "hold"
+          ]
         },
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
+          "task": "Lie in lap for 20 seconds",
+          "duration": 20
         },
         {
-          "task": "Dog in lap for 5 seconds",
+          "task": "Touch each toe individually on left back paw",
+          "tags": [
+            "paw",
+            "left",
+            "back",
+            "toes",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["lap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Touch left front paw with brush",
+          "tags": [
+            "brush",
+            "paw",
+            "left",
+            "front",
+            "touch"
+          ]
+        },
+        {
+          "task": "Lie in lap for 10 seconds",
+          "duration": 10
+        },
+        {
+          "task": "Touch each toe individually on right back paw",
+          "tags": [
+            "paw",
+            "right",
+            "back",
+            "toes",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
         }
       ]
     },
     {
       "set_number": 13,
-      "title": "Full Body Check Sequence",
-      "goal": "Practice flowing between different body areas",
       "tasks": [
         {
-          "task": "Dog in cradled position for 20 seconds",
-          "duration": 20,
-          "tags": ["cradle"]
+          "task": "Gently guide dog onto your lap",
+          "tags": [
+            "lap",
+            "position"
+          ]
         },
         {
-          "task": "Belly strokes for 10 seconds",
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 30 seconds",
+          "duration": 30
+        },
+        {
+          "task": "Trim single nail on left front paw",
+          "note": "First actual trim. Just one nail. Reward heavily. If dog is not ready, go back to placing clippers without trimming.",
+          "tags": [
+            "clippers",
+            "paw",
+            "left",
+            "front",
+            "trim"
+          ]
+        },
+        {
+          "task": "Stroke belly for 10 seconds",
           "duration": 10,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Check front paw (hold and touch pads) for 5 seconds",
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
+        },
+        {
+          "task": "Hold left ear flap for 5 seconds",
           "duration": 5,
-          "note": "Beginning to flow between areas smoothly.",
-          "tags": ["hold", "front-paw", "paw-pad"]
+          "tags": [
+            "ear",
+            "left",
+            "hold"
+          ]
         },
         {
-          "task": "Belly strokes for 3 seconds",
-          "duration": 3,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Check other front paw for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["hold", "front-paw", "paw-pad"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 10 seconds",
+          "task": "Trim single nail on right front paw",
+          "tags": [
+            "clippers",
+            "paw",
+            "right",
+            "front",
+            "trim"
+          ]
+        },
+        {
+          "task": "Stroke belly for 10 seconds",
           "duration": 10,
-          "tags": ["cradle"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Check one ear (lift and look) for 5 seconds",
+          "task": "Lie in lap for 20 seconds",
+          "duration": 20
+        },
+        {
+          "task": "Hold right ear flap for 5 seconds",
           "duration": 5,
-          "tags": ["lift", "ear-flap"]
+          "tags": [
+            "ear",
+            "right",
+            "hold"
+          ]
         },
         {
-          "task": "Belly strokes for 3 seconds",
-          "duration": 3,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Check other ear for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["lift", "ear-flap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Check one hind paw for 5 seconds",
-          "duration": 5,
-          "tags": ["hold", "hind-paw"]
-        },
-        {
-          "task": "Belly strokes for 3 seconds",
-          "duration": 3,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Check other hind paw for 5 seconds",
-          "duration": 5,
-          "tags": ["hold", "hind-paw"]
-        },
-        {
-          "task": "Dog in cradled position for 20 seconds",
-          "duration": 20,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Full belly stroke sequence for 15 seconds",
-          "duration": 15,
-          "note": "Return to the soothing strokes as reward.",
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
+          "task": "Lift and examine left front paw for 10 seconds",
           "duration": 10,
-          "tags": ["cradle"]
+          "tags": [
+            "paw",
+            "left",
+            "front",
+            "lift",
+            "examine"
+          ]
         },
         {
-          "task": "Dog in lap for 5 seconds",
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
+        },
+        {
+          "task": "Touch right front paw with brush",
+          "tags": [
+            "brush",
+            "paw",
+            "right",
+            "front",
+            "touch"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["lap"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lift and examine right front paw for 10 seconds",
+          "duration": 10,
+          "tags": [
+            "paw",
+            "right",
+            "front",
+            "lift",
+            "examine"
+          ]
+        },
+        {
+          "task": "Lie in lap for 20 seconds",
+          "duration": 20
+        },
+        {
+          "task": "Gentle circular belly rub for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke",
+            "circular"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
+          "duration": 5,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
         }
       ]
     },
     {
       "set_number": 14,
-      "title": "Introduction to Grooming Tools",
-      "goal": "Introduce presence of grooming tools while maintaining calm",
       "tasks": [
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
+          "task": "Gently guide dog onto your lap",
+          "tags": [
+            "lap",
+            "position"
+          ]
         },
         {
-          "task": "Belly strokes for 10 seconds",
-          "duration": 10,
-          "tags": ["stroke", "belly"]
+          "task": "Lie in lap for 30 seconds",
+          "duration": 30
         },
         {
-          "task": "Show nail clippers nearby (not touching dog) for 2 seconds",
-          "duration": 2,
-          "note": "Just visual exposure. Keep clippers at a comfortable distance.",
-          "tags": ["clippers", "show"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Show clippers for 3 seconds",
-          "duration": 3,
-          "tags": ["clippers", "show"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Show clippers for 5 seconds",
+          "task": "Trim single nail on left back paw",
+          "note": "Back paws may be more challenging. Go slowly and reward.",
+          "tags": [
+            "clippers",
+            "paw",
+            "left",
+            "back",
+            "trim"
+          ]
+        },
+        {
+          "task": "Stroke belly for 10 seconds",
+          "duration": 10,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Look inside left ear",
+          "tags": [
+            "ear",
+            "left",
+            "look"
+          ]
+        },
+        {
+          "task": "Lie in lap for 20 seconds",
+          "duration": 20
+        },
+        {
+          "task": "Trim single nail on right back paw",
+          "tags": [
+            "clippers",
+            "paw",
+            "right",
+            "back",
+            "trim"
+          ]
+        },
+        {
+          "task": "Stroke belly for 10 seconds",
+          "duration": 10,
+          "tags": [
+            "belly",
+            "stroke"
+          ]
+        },
+        {
+          "task": "Look inside right ear",
+          "tags": [
+            "ear",
+            "right",
+            "look"
+          ]
+        },
+        {
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
+        },
+        {
+          "task": "Trim second nail on left front paw",
+          "tags": [
+            "clippers",
+            "paw",
+            "left",
+            "front",
+            "trim"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["clippers", "show"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Let dog sniff clippers for 2 seconds",
-          "duration": 2,
-          "note": "Bringing tool closer. Let dog investigate on their terms.",
-          "tags": ["clippers", "sniff"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Let dog sniff clippers for 5 seconds",
+          "task": "Lift left lip and hold for 5 seconds",
           "duration": 5,
-          "tags": ["clippers", "sniff"]
+          "tags": [
+            "lip",
+            "left",
+            "lift",
+            "hold"
+          ]
         },
         {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Lie in lap for 20 seconds",
+          "duration": 20
+        },
+        {
+          "task": "Trim second nail on right front paw",
+          "tags": [
+            "clippers",
+            "paw",
+            "right",
+            "front",
+            "trim"
+          ]
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Touch clippers to dog's shoulder (closed, no action) for 1 second",
-          "duration": 1,
-          "note": "First physical contact with tool. Far from paws.",
-          "tags": ["clippers", "touch", "shoulder"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Touch clippers to shoulder for 2 seconds",
-          "duration": 2,
-          "tags": ["clippers", "touch", "shoulder"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
+          "task": "Lift right lip and hold for 5 seconds",
           "duration": 5,
-          "tags": ["stroke", "belly"]
+          "tags": [
+            "lip",
+            "right",
+            "lift",
+            "hold"
+          ]
         },
         {
-          "task": "Touch clippers to leg for 2 seconds",
-          "duration": 2,
-          "tags": ["clippers", "touch", "front-leg"]
+          "task": "Lie in lap for 30 seconds",
+          "duration": 30
         },
         {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
+          "task": "Gentle circular belly rub for 10 seconds",
+          "duration": 10,
+          "tags": [
+            "belly",
+            "stroke",
+            "circular"
+          ]
         },
         {
-          "task": "Dog in lap for 5 seconds",
+          "task": "Lie in lap for 15 seconds",
+          "duration": 15
+        },
+        {
+          "task": "Stroke belly for 5 seconds",
           "duration": 5,
-          "tags": ["lap"]
-        }
-      ]
-    },
-    {
-      "set_number": 15,
-      "title": "Clipper Sound and Paw Contact",
-      "goal": "Introduce clipper sounds and paw contact with tool",
-      "tasks": [
-        {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
+          "tags": [
+            "belly",
+            "stroke"
+          ]
         },
         {
-          "task": "Belly strokes for 10 seconds",
-          "duration": 10,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Click clippers once at distance",
-          "quantity": 1,
-          "note": "First sound exposure. Keep clippers away from dog. Some dogs are startled by the click.",
-          "tags": ["clippers", "sound"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Click clippers twice at distance",
-          "quantity": 2,
-          "tags": ["clippers", "sound"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
-          "duration": 5,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Click clippers 3 times at distance",
-          "quantity": 3,
-          "tags": ["clippers", "sound"]
-        },
-        {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Touch closed clippers to front paw for 1 second",
-          "duration": 1,
-          "note": "First tool contact with paw.",
-          "tags": ["clippers", "touch", "front-paw"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Touch closed clippers to paw for 2 seconds",
-          "duration": 2,
-          "tags": ["clippers", "touch", "front-paw"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
-          "duration": 5,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Touch closed clippers to paw for 3 seconds",
-          "duration": 3,
-          "tags": ["clippers", "touch", "front-paw"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Hold paw and touch clippers to nail for 1 second",
-          "duration": 1,
-          "note": "This is significant progress. Take your time here.",
-          "tags": ["clippers", "touch", "nail"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
-          "duration": 5,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Hold paw and touch clippers to nail for 2 seconds",
-          "duration": 2,
-          "tags": ["clippers", "touch", "nail"]
-        },
-        {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Dog in lap for 5 seconds",
-          "duration": 5,
-          "tags": ["lap"]
-        }
-      ]
-    },
-    {
-      "set_number": 16,
-      "title": "Complete Grooming Ritual",
-      "goal": "Practice the full grooming ritual sequence",
-      "tasks": [
-        {
-          "task": "Gently guide dog into cradled position, settle for 20 seconds",
-          "duration": 20,
-          "note": "Begin the ritual with calm settling.",
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Long, slow belly strokes for 20 seconds",
-          "duration": 20,
-          "note": "The soothing strokes that recall mother's care.",
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Dog relaxed in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Gently check right front paw - hold, examine pads, touch nails for 10 seconds",
-          "duration": 10,
-          "tags": ["hold", "front-paw", "paw-pad", "nail"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
-          "duration": 5,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Check left front paw for 10 seconds",
-          "duration": 10,
-          "tags": ["hold", "front-paw", "paw-pad", "nail"]
-        },
-        {
-          "task": "Dog in cradled position for 10 seconds",
-          "duration": 10,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Check right ear - lift, examine, gentle touch for 10 seconds",
-          "duration": 10,
-          "tags": ["lift", "ear-flap", "ear-inner"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
-          "duration": 5,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Check left ear for 10 seconds",
-          "duration": 10,
-          "tags": ["lift", "ear-flap", "ear-inner"]
-        },
-        {
-          "task": "Dog in cradled position for 15 seconds",
-          "duration": 15,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Check right hind paw for 10 seconds",
-          "duration": 10,
-          "tags": ["hold", "hind-paw", "hind-paw-pad", "hind-nail"]
-        },
-        {
-          "task": "Belly strokes for 5 seconds",
-          "duration": 5,
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Check left hind paw for 10 seconds",
-          "duration": 10,
-          "tags": ["hold", "hind-paw", "hind-paw-pad", "hind-nail"]
-        },
-        {
-          "task": "Long, slow belly strokes for 20 seconds",
-          "duration": 20,
-          "note": "Ending the ritual with the same soothing strokes we started with.",
-          "tags": ["stroke", "belly"]
-        },
-        {
-          "task": "Dog relaxed in cradled position for 20 seconds",
-          "duration": 20,
-          "tags": ["cradle"]
-        },
-        {
-          "task": "Gently transition dog to sitting beside you, calm praise",
-          "duration": 10,
-          "note": "End the ritual gently. This was a bonding moment.",
-          "tags": ["sit", "beside"]
+          "task": "Lie in lap for 5 seconds",
+          "duration": 5
         }
       ]
     }
